@@ -1,4 +1,4 @@
-const motifsAree = [
+const motiviAree = [
     { value: 'dimissioni', text: 'Dimissioni (Art. 86 lett. e)' },
     { value: 'art86a', text: 'Superamento comporto / Invalidità (Art. 86 lett. a)' },
     { value: 'art86b', text: 'Requisiti pensionistici senza prosecuzione (Art. 86 lett. b)' },
@@ -27,7 +27,7 @@ function onCategoriaChange() {
     const oldVal = motivoSelect.value;
 
     motivoSelect.innerHTML = '';
-    const opzioni = categoria === 'dirigenti' ? motiviDirigenti : motifsAree;
+    const opzioni = categoria === 'dirigenti' ? motiviDirigenti : motiviAree;
     opzioni.forEach(opt => {
         const option = document.createElement('option');
         option.value = opt.value;
@@ -72,12 +72,10 @@ function calcola() {
     const previdenza = document.getElementById('previdenza').value;
     const eta = parseInt(document.getElementById('eta').value) || 0;
     
-    // Gestione inserimento formato italiano (. per migliaia, , per decimali)
     let ralInput = document.getElementById('ral').value;
     ralInput = ralInput.replace(/\./g, '').replace(/,/g, '.');
     const ral = parseFloat(ralInput) || 0;
     
-    // Calcolo rigoroso in dodicesimi
     const mensilitaEuro = ral / 12;
 
     let mensilitaSpettanti = 0;
@@ -88,7 +86,6 @@ function calcola() {
     let azione = "erogare"; 
     let isRange = false;
 
-    // --- LOGICA AREE PROFESSIONALI E QUADRI ---
     if (categoria !== 'dirigenti') {
         if (motivo === 'dimissioni') {
             esitoCustom = "La lavoratrice o il lavoratore è esonerato dall'obbligo di preavviso.";
@@ -99,7 +96,6 @@ function calcola() {
             mensilitaSpettanti = 0;
         }
         else if (motivo === 'art86f') {
-            // Dimissioni per giusta causa: spetta l'indennità corrispondente al giustificato motivo c)
             if (categoria === 'quadri') mensilitaSpettanti = anzianita <= 5 ? 5 : (anzianita <= 10 ? 6 : (anzianita <= 15 ? 7 : 8));
             if (categoria === 'terza') mensilitaSpettanti = anzianita <= 5 ? 3 : (anzianita <= 10 ? 4 : (anzianita <= 15 ? 5 : 6));
             if (categoria === 'unificata') mensilitaSpettanti = anzianita <= 5 ? 2 : (anzianita <= 10 ? 2.25 : (anzianita <= 15 ? 3 : 4));
@@ -148,9 +144,7 @@ function calcola() {
                 if (categoria === 'unificata') mensilitaSpettanti = anzianita <= 5 ? 1 : (anzianita <= 10 ? 2 : 3);
             }
         }
-    } 
-    // --- LOGICA DIRIGENTI ---
-    else {
+    } else {
         if (motivo === 'dimissioni_dir') {
             mensilitaSpettanti = 3;
             azione = "trattenere";
@@ -177,7 +171,7 @@ function calcola() {
             if (anzianita > 10) {
                 if (eta === 46 || eta === 56) maggiorazione = 2;
                 else if (eta === 47 || eta === 55) maggiorazione = 3;
-                else if (eta === 48 || eta === 54) mayorazione = 4;
+                else if (eta === 48 || eta === 54) maggiorazione = 4;
                 else if (eta === 49 || eta === 53) maggiorazione = 5;
                 else if (eta === 50 || eta === 52) maggiorazione = 6;
                 else if (eta === 51) maggiorazione = 7;

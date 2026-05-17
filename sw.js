@@ -1,10 +1,11 @@
-const CACHE_NAME = 'preavviso-cache-v1';
+const CACHE_NAME = 'preavviso-cache-v2';
 const urlsToCache = [
   './',
   './index.html',
   './style.css',
   './script.js',
-  './manifest.json'
+  './manifest.json',
+  './icon.png'
 ];
 
 self.addEventListener('install', event => {
