@@ -15,11 +15,11 @@ const motiviDirigenti = [
     { value: 'morte_dir', text: 'Morte del dirigente (Art. 26 c. 5)' }
 ];
 
-// NUOVO INNESCO: Immediato, non aspetta il caricamento di risorse esterne come il jsPDF
+// INNESCO ISTANTANEO: Non aspetta risorse da internet
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('categoria').addEventListener('change', onCategoriaChange);
     document.getElementById('motivo').addEventListener('change', onMotivoChange);
-    onCategoriaChange(); // Popola il menù al primo avvio
+    onCategoriaChange();
 });
 
 function onCategoriaChange() {
@@ -191,7 +191,6 @@ function calcola() {
                 importoErogareText = "Nessuna erogazione a favore dipendente";
             }
         }
-        // Il refuso "motif" è stato corretto qui sotto!
         else if (motivo === 'impresa_dir' || motivo === 'morte_dir') {
             if (previdenza === 'massima') {
                 mensilitaSpettanti = motivo === 'impresa_dir' ? 6 : 7;
