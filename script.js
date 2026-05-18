@@ -8,18 +8,19 @@ const motiviAree = [
     { value: 'art86g', text: 'Morte (Art. 86 lett. g)' }
 ];
 
-const motifsDirigenti = [
+const motiviDirigenti = [
     { value: 'dimissioni_dir', text: 'Dimissioni del dirigente (Art. 26 c. 2)' },
     { value: 'impresa_dir', text: 'Risoluzione ad iniziativa dell\'impresa non per giusta causa (Art. 26 c. 1)' },
     { value: 'ingiustificato_dir', text: 'Licenziamento riconosciuto ingiustificato dal Collegio (Art. 28 c. 15)' },
     { value: 'morte_dir', text: 'Morte del dirigente (Art. 26 c. 5)' }
 ];
 
-window.onload = function() {
+// NUOVO INNESCO: Immediato, non aspetta il caricamento di risorse esterne come il jsPDF
+document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('categoria').addEventListener('change', onCategoriaChange);
     document.getElementById('motivo').addEventListener('change', onMotivoChange);
-    onCategoriaChange();
-};
+    onCategoriaChange(); // Popola il menù al primo avvio
+});
 
 function onCategoriaChange() {
     const categoria = document.getElementById('categoria').value;
@@ -27,7 +28,7 @@ function onCategoriaChange() {
     const oldVal = motivoSelect.value;
 
     motivoSelect.innerHTML = '';
-    const opzioni = categoria === 'dirigenti' ? motifsDirigenti : motiviAree;
+    const opzioni = categoria === 'dirigenti' ? motiviDirigenti : motiviAree;
     opzioni.forEach(opt => {
         const option = document.createElement('option');
         option.value = opt.value;
@@ -76,7 +77,7 @@ function calcola() {
     ralInput = ralInput.replace(/\./g, '').replace(/,/g, '.');
     const ral = parseFloat(ralInput) || 0;
     
-    const alignmentEuro = ral / 12;
+    const mensilitaEuro = ral / 12;
 
     let mensilitaSpettanti = 0;
     let testoMesi = "";
@@ -96,7 +97,7 @@ function calcola() {
                 <p><small>In caso di mancato preavviso lavorato, l'azienda può trattenere il relativo importo dalle competenze di fine rapporto.</small></p>
             `;
             if (ral > 0) {
-                importoTrattenereText = formatValuta(mensilitaSpettanti * alignmentEuro);
+                importoTrattenereText = formatValuta(mensilitaSpettanti * mensilitaEuro);
                 importoErogareText = "Nessuna erogazione a favore dipendente";
             }
         } 
@@ -130,7 +131,7 @@ function calcola() {
             `;
             
             if (ral > 0) {
-                importoErogareText = formatValuta(mensilitaSpettanti * alignmentEuro);
+                importoErogareText = formatValuta(mensilitaSpettanti * mensilitaEuro);
                 importoTrattenereText = "Nessuna trattenuta a carico dipendente";
             }
         }
@@ -186,10 +187,11 @@ function calcola() {
             mensilitaSpettanti = 3;
             testoMesi = `3 mensilità`;
             if (ral > 0) {
-                importoTrattenereText = formatValuta(mensilitaSpettanti * alignmentEuro);
+                importoTrattenereText = formatValuta(mensilitaSpettanti * mensilitaEuro);
                 importoErogareText = "Nessuna erogazione a favore dipendente";
             }
         }
+        // Il refuso "motif" è stato corretto qui sotto!
         else if (motivo === 'impresa_dir' || motivo === 'morte_dir') {
             if (previdenza === 'massima') {
                 mensilitaSpettanti = motivo === 'impresa_dir' ? 6 : 7;
@@ -198,7 +200,7 @@ function calcola() {
             }
             testoMesi = `${mensilitaSpettanti.toFixed(2)} mesi`;
             if (ral > 0) {
-                importoErogareText = formatValuta(mensilitaSpettanti * alignmentEuro);
+                importoErogareText = formatValuta(mensilitaSpettanti * mensilitaEuro);
                 importoTrattenereText = "Nessuna trattenuta a carico dipendente";
             }
         }
@@ -228,12 +230,12 @@ function calcola() {
                 <div style="border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 10px;">
                     <p style="margin-bottom: 5px;"><strong>1. Preavviso Contrattuale (Spettanza certa):</strong></p>
                     <p style="font-size: 1.1rem; color: #1B2B4F; font-weight: bold;">${preavvisoBase.toFixed(2)} mesi</p>
-                    <p style="color: #2E9169; font-size: 0.95rem;">Erogazione Preavviso: ${ral > 0 ? formatValuta(preavvisoBase * alignmentEuro) : '(Inserire RAL)'}</p>
+                    <p style="color: #2E9169; font-size: 0.95rem;">Erogazione Preavviso: ${ral > 0 ? formatValuta(preavvisoBase * mensilitaEuro) : '(Inserire RAL)'}</p>
                 </div>
                 <div>
                     <p style="margin-bottom: 5px;"><strong>2. Indennità Supplementare (Esito Collegio Arbitrale):</strong></p>
                     <p style="font-size: 1.1rem; color: #1B2B4F; font-weight: bold;">Da ${indennitaMin} a ${indennitaMax} mensilità</p>
-                    <p style="color: #2E9169; font-size: 0.95rem;">Erogazione Indennità: ${ral > 0 ? `Tra ${formatValuta(indennitaMin * alignmentEuro)} e ${formatValuta(indennitaMax * alignmentEuro)}` : '(Inserire RAL)'}</p>
+                    <p style="color: #2E9169; font-size: 0.95rem;">Erogazione Indennità: ${ral > 0 ? `Tra ${formatValuta(indennitaMin * mensilitaEuro)} e ${formatValuta(indennitaMax * mensilitaEuro)}` : '(Inserire RAL)'}</p>
                     <p><small>Da corrispondersi in aggiunta al preavviso contrattuale.</small></p>
                 </div>
             `;
@@ -242,7 +244,7 @@ function calcola() {
 
     if (!esitoCustomHTML && testoMesi) {
         if (ral > 0 && importoErogareText === "N/A" && importoTrattenereText === "N/A") {
-            importoErogareText = formatValuta(mensilitaSpettanti * alignmentEuro);
+            importoErogareText = formatValuta(mensilitaSpettanti * mensilitaEuro);
             importoTrattenereText = "Nessuna trattenuta a carico dipendente";
         }
         esitoCustomHTML = `
@@ -302,12 +304,10 @@ function resetForm() {
     document.getElementById('result-screen').style.display = 'none';
 }
 
-// NUOVA FUNZIONE ESPORTA PDF TOTALMENTE RIVISITATA E STYLATA LATO CLIENT
 function esportaPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF('p', 'mm', 'a4');
 
-    // Recupero i testi puliti dalle selezioni correnti dell'utente
     const catText = document.getElementById('categoria').options[document.getElementById('categoria').selectedIndex].text;
     const motText = document.getElementById('motivo').options[document.getElementById('motivo').selectedIndex].text;
     const anzText = document.getElementById('anzianita').value + " anni";
@@ -315,12 +315,9 @@ function esportaPDF() {
     let ralVal = document.getElementById('ral').value || "Non indicata";
     if (ralVal !== "Non indicata" && !ralVal.includes("€")) ralVal = "€ " + ralVal;
 
-    // Estrazione dei dati calcolati dai nodi interni dell'app
     const resCard = document.getElementById('result-content');
-    const boldTexts = resCard.getElementsByTagName('p');
     
-    // --- 1. BANNER DI TESTATA (Stile Istituzionale Blu Banco)
-    doc.setFillColor(27, 43, 79); // #1B2B4F
+    doc.setFillColor(27, 43, 79); 
     doc.rect(0, 0, 210, 38, 'F');
 
     doc.setTextColor(255, 255, 255);
@@ -335,22 +332,19 @@ function esportaPDF() {
 
     let y = 52;
 
-    // --- 2. SEZIONE: RIEPILOGO DATI INSERITI
     doc.setFont("helvetica", "bold");
     doc.setFontSize(13);
-    doc.setTextColor(27, 43, 79); // #1B2B4F
+    doc.setTextColor(27, 43, 79); 
     doc.text("1. RIEPILOGO DATI CONTRATTUALI", 15, y);
     
     y += 4;
-    doc.setDrawColor(203, 213, 225); // Linea sottile grigia
+    doc.setDrawColor(203, 213, 225); 
     doc.setLineWidth(0.4);
     doc.line(15, y, 195, y);
     
     y += 10;
     doc.setFontSize(10);
-    doc.setTextColor(80, 80, 80);
 
-    // Array chiave-valore per la stampa ordinata
     const datiRiepilogo = [
         { k: "Categoria Contrattuale:", v: catText },
         { k: "Motivo Risoluzione:", v: motText },
@@ -370,15 +364,11 @@ function esportaPDF() {
         doc.setFont("helvetica", "normal");
         doc.setTextColor(40, 40, 40);
         
-        // Split testo automatico per motivi molto lunghi (evita l'effetto fuori pagina)
         const splitVal = doc.splitTextToSize(item.v, 120);
         doc.text(splitVal, 72, y);
-        
-        // Calcolo dinamico dell'altezza in caso di testi a più righe
         y += (splitVal.length > 1) ? (splitVal.length * 5) : 7;
     });
 
-    // --- 3. SEZIONE: ESITO DEL CALCOLO
     y += 8;
     doc.setFont("helvetica", "bold");
     doc.setFontSize(13);
@@ -389,17 +379,14 @@ function esportaPDF() {
     doc.line(15, y, 195, y);
     y += 10;
 
-    // Estraiamo in modo pulito i blocchi di testo generati dall'applicazione
     const pElements = resCard.querySelectorAll('p');
     
     pElements.forEach(p => {
         const testoCompleto = p.innerText || p.textContent;
-        // Salto i riepiloghi in piccolo duplicati in fondo alla scheda risultati
         if (testoCompleto.includes("Categoria:") || testoCompleto.includes("Motivo:") || testoCompleto.includes("Anzianità:") || testoCompleto.includes("RAL Indicata:")) {
             return;
         }
 
-        // Se il testo contiene etichette forti (es. Mesi teorici, Importo da erogare, ecc.)
         if (p.querySelector('strong')) {
             doc.setFont("helvetica", "bold");
             doc.setFontSize(10);
@@ -409,17 +396,15 @@ function esportaPDF() {
             return;
         }
 
-        // È un valore numerico/economico calcolato (il testo colorato grande nell'interfaccia)
         doc.setFont("helvetica", "bold");
         doc.setFontSize(12);
 
-        // Colorazione logica condizionale coordinata
         if (testoCompleto.includes("DA EROGARE") || (testoCompleto.includes("€") && !testoCompleto.includes("trattenuta") && !testoCompleto.includes("TRATTENERE"))) {
-            doc.setTextColor(46, 145, 105); // Verde BPM
+            doc.setTextColor(46, 145, 105);
         } else if (testoCompleto.includes("DA TRATTENERE") || (testoCompleto.includes("€") && testoCompleto.includes("trattenuta"))) {
-            doc.setTextColor(114, 28, 36); // Rosso scuro trattenute
+            doc.setTextColor(114, 28, 36); 
         } else {
-            doc.setTextColor(27, 43, 79); // Blu Scuro Standard
+            doc.setTextColor(27, 43, 79); 
         }
 
         const splitRisultato = doc.splitTextToSize(testoCompleto, 175);
@@ -427,16 +412,14 @@ function esportaPDF() {
         y += (splitRisultato.length * 5) + 6;
     });
 
-    // --- 4. PIÈ DI PAGINA (Elegante e discreto)
     doc.setFont("helvetica", "normal");
     doc.setFontSize(8);
     doc.setTextColor(140, 150, 165);
     doc.line(15, 278, 195, 278);
     
     const oggi = new Date().toLocaleDateString('it-IT');
-    doc.text(`Documento generato da IndenniToolApp in data ${oggi}`, 15, 284);
+    doc.text(`Documento generato da IndenniTool in data ${oggi}`, 15, 284);
     doc.text("Pagina 1 di 1", 175, 284);
 
-    // Download del file con il nome corretto
     doc.save("Report-IndenniTool.pdf");
 }
