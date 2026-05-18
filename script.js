@@ -79,27 +79,63 @@ function calcola() {
     const mensilitaEuro = ral / 12;
 
     let mensilitaSpettanti = 0;
-    let mensilitaMin = 0;
-    let mensilitaMax = 0;
     let testoMesi = "";
-    let esitoCustom = "";
-    let azione = "erogare"; 
-    let isRange = false;
+    let esitoCustomHTML = "";
+    let importoErogareText = "N/A";
+    let importoTrattenereText = "N/A";
+    let isSpecialeDirigente = false;
 
     if (categoria !== 'dirigenti') {
         if (motivo === 'dimissioni') {
-            esitoCustom = "La lavoratrice o il lavoratore è esonerato dall'obbligo di preavviso.";
-            mensilitaSpettanti = 0;
+            mensilitaSpettanti = 1;
+            azione = "trattenere";
+            esitoCustomHTML = `
+                <div style="border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 10px;">
+                    <p style="margin-bottom: 5px;"><strong>Preavviso dovuto dal lavoratore:</strong></p>
+                    <p style="font-size: 1.1rem; color: #0056b3; font-weight: bold;">1 mese (Art. 88 comma 1)</p>
+                </div>
+                <p><small>In caso di mancato preavviso lavorato, l'azienda può trattenere il relativo importo dalle competenze di fine rapporto.</small></p>
+            `;
+            if (ral > 0) {
+                importoTrattenereText = formatValuta(mensilitaSpettanti * mensilitaEuro);
+                importoErogareText = "Nessuna erogazione a favore dipendente";
+            }
         } 
         else if (motivo === 'art86d') {
-            esitoCustom = "Nessun preavviso spettante. Risoluzione immediata del rapporto (ex art. 2119 c.c.).";
-            mensilitaSpettanti = 0;
+            esitoCustomHTML = `<p><strong>Mesi/Mensilità teorici:</strong> Nessun preavviso spettante. Risoluzione immediata (ex art. 2119 c.c.).</p>`;
+            importoErogareText = "€ 0,00";
+            importoTrattenereText = "€ 0,00";
         }
         else if (motivo === 'art86f') {
-            if (categoria === 'quadri') mensilitaSpettanti = anzianita <= 5 ? 5 : (anzianita <= 10 ? 6 : (anzianita <= 15 ? 7 : 8));
-            if (categoria === 'terza') mensilitaSpettanti = anzianita <= 5 ? 3 : (anzianita <= 10 ? 4 : (anzianita <= 15 ? 5 : 6));
-            if (categoria === 'unificata') mensilitaSpettanti = anzianita <= 5 ? 2 : (anzianita <= 10 ? 2.25 : (anzianita <= 15 ? 3 : 4));
-            esitoCustom = `${mensilitaSpettanti.toFixed(2)} mensilità (Indennità sostitutiva a favore del dipendente)`;
+            let preavvisoBase = 0;
+            if (categoria === 'quadri') preavvisoBase = anzianita <= 5 ? 5 : (anzianita <= 10 ? 6 : (anzianita <= 15 ? 7 : 8));
+            if (categoria === 'terza') preavvisoBase = anzianita <= 5 ? 3 : (anzianita <= 10 ? 4 : (anzianita <= 15 ? 5 : 6));
+            if (categoria === 'unificata') preavvisoBase = anzianita <= 5 ? 2 : (anzianita <= 10 ? 2.25 : (anzianita <= 15 ? 3 : 4));
+            
+            // Indennità ulteriore Art. 88 comma 4
+            let mesiArt88 = anzianita <= 10 ? 4 : 6; 
+            mensilitaSpettanti = preavvisoBase + mesiArt88;
+            azione = "erogare";
+            
+            esitoCustomHTML = `
+                <div style="border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 10px;">
+                    <p style="margin-bottom: 5px;"><strong>1. Indennità sostitutiva preavviso (equiparata a Giustificato Motivo):</strong></p>
+                    <p style="font-size: 1.1rem; color: #0056b3; font-weight: bold;">${preavvisoBase.toFixed(2)} mensilità</p>
+                </div>
+                <div style="border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 10px;">
+                    <p style="margin-bottom: 5px;"><strong>2. Ulteriore Indennità (Art. 88 comma 4):</strong></p>
+                    <p style="font-size: 1.1rem; color: #0056b3; font-weight: bold;">${mesiArt88} mensilità</p>
+                </div>
+                <div>
+                    <p style="margin-bottom: 5px;"><strong>Totale Mesi/Mensilità spettanti:</strong></p>
+                    <p style="font-size: 1.1rem; color: #155724; font-weight: bold;">${mensilitaSpettanti.toFixed(2)} mensilità</p>
+                </div>
+            `;
+            
+            if (ral > 0) {
+                importoErogareText = formatValuta(mensilitaSpettanti * mensilitaEuro);
+                importoTrattenereText = "Nessuna trattenuta a carico dipendente";
+            }
         }
         else if (motivo === 'art86a') {
             let base = 0;
@@ -116,6 +152,7 @@ function calcola() {
             } else {
                 mensilitaSpettanti = base;
             }
+            testoMesi = `${mensilitaSpettanti.toFixed(2)} mensilità/mesi`;
         }
         else if (motivo === 'art86b') {
             if (previdenza === 'massima' || previdenza === 'inferiore') {
@@ -127,11 +164,13 @@ function calcola() {
                 if (categoria === 'terza') mensilitaSpettanti = anzianita <= 5 ? 2 : (anzianita <= 10 ? 3 : 4);
                 if (categoria === 'unificata') mensilitaSpettanti = anzianita <= 5 ? 1 : (anzianita <= 10 ? 2 : 3);
             }
+            testoMesi = `${mensilitaSpettanti.toFixed(2)} mensilità/mesi`;
         }
         else if (motivo === 'art86c') {
             if (categoria === 'quadri') mensilitaSpettanti = anzianita <= 5 ? 5 : (anzianita <= 10 ? 6 : (anzianita <= 15 ? 7 : 8));
             if (categoria === 'terza') mensilitaSpettanti = anzianita <= 5 ? 3 : (anzianita <= 10 ? 4 : (anzianita <= 15 ? 5 : 6));
             if (categoria === 'unificata') mensilitaSpettanti = anzianita <= 5 ? 2 : (anzianita <= 10 ? 2.25 : (anzianita <= 15 ? 3 : 4));
+            testoMesi = `${mensilitaSpettanti.toFixed(2)} mensilità/mesi`;
         }
         else if (motivo === 'art86g') {
             if (previdenza === 'massima' || previdenza === 'inferiore') {
@@ -143,30 +182,42 @@ function calcola() {
                 if (categoria === 'terza') mensilitaSpettanti = anzianita <= 5 ? 2 : (anzianita <= 10 ? 3 : 4);
                 if (categoria === 'unificata') mensilitaSpettanti = anzianita <= 5 ? 1 : (anzianita <= 10 ? 2 : 3);
             }
+            testoMesi = `${mensilitaSpettanti.toFixed(2)} mensilità/mesi`;
         }
     } else {
+        // --- DIRIGENTI ---
         if (motivo === 'dimissioni_dir') {
             mensilitaSpettanti = 3;
-            azione = "trattenere";
-        }
-        else if (motivo === 'impresa_dir') {
-            if (previdenza === 'massima') {
-                mensilitaSpettanti = 6;
-            } else {
-                let mesi = 5 + Math.max(0, anzianita - 2) * 0.5;
-                mensilitaSpettanti = Math.min(mesi, 12);
+            testoMesi = `3 mensilità`;
+            if (ral > 0) {
+                importoTrattenereText = formatValuta(mensilitaSpettanti * mensilitaEuro);
+                importoErogareText = "Nessuna erogazione a favore dipendente";
             }
         }
-        else if (motivo === 'morte_dir') {
+        else if (motivo === 'impresa_dir' || motivo === 'morte_dir') {
             if (previdenza === 'massima') {
-                mensilitaSpettanti = 7;
+                mensilitaSpettanti = motivo === 'impresa_dir' ? 6 : 7;
             } else {
-                let mesi = 5 + Math.max(0, anzianita - 2) * 0.5;
-                mensilitaSpettanti = Math.min(mesi, 12);
+                mensilitaSpettanti = Math.min(5 + Math.max(0, anzianita - 2) * 0.5, 12);
+            }
+            testoMesi = `${mensilitaSpettanti.toFixed(2)} mesi`;
+            if (ral > 0) {
+                importoErogareText = formatValuta(mensilitaSpettanti * mensilitaEuro);
+                importoTrattenereText = "Nessuna trattenuta a carico dipendente";
             }
         }
         else if (motivo === 'ingiustificato_dir') {
-            isRange = true;
+            isSpecialeDirigente = true;
+            
+            // 1. Calcolo Preavviso puro
+            let preavvisoBase = 0;
+            if (previdenza === 'massima') {
+                preavvisoBase = 6;
+            } else {
+                preavvisoBase = Math.min(5 + Math.max(0, anzianita - 2) * 0.5, 12);
+            }
+
+            // 2. Calcolo Indennità Supplementare
             let maggiorazione = 0;
             if (anzianita > 10) {
                 if (eta === 46 || eta === 56) maggiorazione = 2;
@@ -176,61 +227,75 @@ function calcola() {
                 else if (eta === 50 || eta === 52) maggiorazione = 6;
                 else if (eta === 51) maggiorazione = 7;
             }
-            mensilitaMin = 7 + maggiorazione;
-            mensilitaMax = 22 + maggiorazione;
-            testoMesi = `Min: ${mensilitaMin} mensilità | Max: ${mensilitaMax} mensilità`;
+            let indennitaMin = 7 + maggiorazione;
+            let indennitaMax = 22 + maggiorazione;
+
+            esitoCustomHTML = `
+                <div style="border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 10px;">
+                    <p style="margin-bottom: 5px;"><strong>1. Preavviso Contrattuale (Spettanza certa):</strong></p>
+                    <p style="font-size: 1.1rem; color: #0056b3; font-weight: bold;">${preavvisoBase.toFixed(2)} mesi</p>
+                    <p style="color: #155724; font-size: 0.95rem;">Erogazione Preavviso: ${ral > 0 ? formatValuta(preavvisoBase * mensilitaEuro) : '(Inserire RAL)'}</p>
+                </div>
+                <div>
+                    <p style="margin-bottom: 5px;"><strong>2. Indennità Supplementare (Esito Collegio Arbitrale):</strong></p>
+                    <p style="font-size: 1.1rem; color: #0056b3; font-weight: bold;">Da ${indennitaMin} a ${indennitaMax} mensilità</p>
+                    <p style="color: #155724; font-size: 0.95rem;">Erogazione Indennità: ${ral > 0 ? `Tra ${formatValuta(indennitaMin * mensilitaEuro)} e ${formatValuta(indennitaMax * mensilitaEuro)}` : '(Inserire RAL)'}</p>
+                    <p><small>Da corrispondersi in aggiunta al preavviso contrattuale.</small></p>
+                </div>
+            `;
         }
     }
 
-    if (!isRange) testoMesi = `${mensilitaSpettanti.toFixed(2)} mensilità/mesi`;
-    if (esitoCustom) testoMesi = esitoCustom;
-
-    let importoErogareText = "N/A";
-    let importoTrattenereText = "N/A";
-
-    if (ral > 0) {
-        if (motivo === 'art86d') {
-            importoErogareText = "€ 0,00";
-            importoTrattenereText = "€ 0,00";
-        } else if (isRange) {
-            importoErogareText = `Tra ${formatValuta(mensilitaMin * mensilitaEuro)} e ${formatValuta(mensilitaMax * mensilitaEuro)}`;
-            importoTrattenereText = "Nessuna trattenuta";
-        } else {
-            const totale = mensilitaSpettanti * mensilitaEuro;
-            if (azione === "erogare") {
-                importoErogareText = formatValuta(totale);
-                importoTrattenereText = "Nessuna trattenuta a carico dipendente";
-            } else {
-                importoTrattenereText = formatValuta(totale);
-                importoErogareText = "Nessuna erogazione a favore dipendente";
-            }
+    // Gestione standard se non ci sono override HTML 
+    if (!esitoCustomHTML && testoMesi) {
+        if (ral > 0 && importoErogareText === "N/A" && importoTrattenereText === "N/A") {
+            importoErogareText = formatValuta(mensilitaSpettanti * mensilitaEuro);
+            importoTrattenereText = "Nessuna trattenuta a carico dipendente";
         }
-    } else {
+        esitoCustomHTML = `
+            <p style="margin-bottom: 5px;"><strong>Mesi/Mensilità teorici:</strong></p>
+            <p style="font-size: 1.1rem; color: #0056b3; font-weight: bold;">${testoMesi}</p>
+        `;
+    }
+
+    let layoutRisultati = `
+        <h2>Esito Calcolo</h2>
+        <div style="background: white; padding: 10px; border-radius: 8px; margin-bottom:10px; border: 1px solid #ddd;">
+            ${esitoCustomHTML}
+        </div>
+    `;
+
+    // Aggiungo i box colorati solo se l'importo non è già esplicitato nei blocchi sopra (es. dirigenti ingiustificato)
+    if (!isSpecialeDirigente && importoErogareText !== "N/A") {
+        layoutRisultati += `
+            <div style="background: #e6f4ea; padding: 10px; border-radius: 8px; margin-bottom:10px; border: 1px solid #c3e6cb;">
+                <p style="margin-bottom: 5px;"><strong>Importo Eventualmente DA EROGARE:</strong></p>
+                <p style="font-size: 1.1rem; color: #155724; font-weight: bold;">${importoErogareText}</p>
+            </div>
+            <div style="background: #f8d7da; padding: 10px; border-radius: 8px; border: 1px solid #f5c6cb;">
+                <p style="margin-bottom: 5px;"><strong>Importo Eventualmente DA TRATTENERE:</strong></p>
+                <p style="font-size: 1.1rem; color: #721c24; font-weight: bold;">${importoTrattenereText}</p>
+            </div>
+        `;
+    } else if (!isSpecialeDirigente && ral === 0) {
         const missingTesto = "(Inserire la RAL per il calcolo economico)";
-        importoErogareText = missingTesto;
-        importoTrattenereText = missingTesto;
+        layoutRisultati += `
+            <div style="background: #e6f4ea; padding: 10px; border-radius: 8px; margin-bottom:10px; border: 1px solid #c3e6cb;">
+                <p style="margin-bottom: 5px;"><strong>Importo Eventualmente DA EROGARE:</strong></p>
+                <p style="font-size: 1.1rem; color: #155724; font-weight: bold;">${missingTesto}</p>
+            </div>
+            <div style="background: #f8d7da; padding: 10px; border-radius: 8px; border: 1px solid #f5c6cb;">
+                <p style="margin-bottom: 5px;"><strong>Importo Eventualmente DA TRATTENERE:</strong></p>
+                <p style="font-size: 1.1rem; color: #721c24; font-weight: bold;">${missingTesto}</p>
+            </div>
+        `;
     }
 
     document.getElementById('input-screen').style.display = 'none';
     document.getElementById('result-screen').style.display = 'block';
     
     document.getElementById('result-content').innerHTML = `
-        <h2>Esito Calcolo</h2>
-        <div style="background: white; padding: 10px; border-radius: 8px; margin-bottom:10px; border: 1px solid #ddd;">
-            <p style="margin-bottom: 5px;"><strong>Mesi/Mensilità teorici:</strong></p>
-            <p style="font-size: 1.1rem; color: #0056b3; font-weight: bold;">${testoMesi}</p>
-        </div>
-        
-        <div style="background: #e6f4ea; padding: 10px; border-radius: 8px; margin-bottom:10px; border: 1px solid #c3e6cb;">
-            <p style="margin-bottom: 5px;"><strong>Importo Eventualmente DA EROGARE (a favore dipendente):</strong></p>
-            <p style="font-size: 1.1rem; color: #155724; font-weight: bold;">${importoErogareText}</p>
-        </div>
-
-        <div style="background: #f8d7da; padding: 10px; border-radius: 8px; border: 1px solid #f5c6cb;">
-            <p style="margin-bottom: 5px;"><strong>Importo Eventualmente DA TRATTENERE (a carico dipendente per mancato preavviso):</strong></p>
-            <p style="font-size: 1.1rem; color: #721c24; font-weight: bold;">${importoTrattenereText}</p>
-        </div>
-
+        ${layoutRisultati}
         <hr style="margin: 15px 0; border: 0; border-top: 1px solid #ccc;">
         <p><small><strong>Categoria:</strong> ${document.getElementById('categoria').options[document.getElementById('categoria').selectedIndex].text}</small></p>
         <p><small><strong>Motivo:</strong> ${document.getElementById('motivo').options[document.getElementById('motivo').selectedIndex].text}</small></p>
