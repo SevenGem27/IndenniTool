@@ -179,6 +179,21 @@ button {
     z-index: 999;
 }
 
+/* Stile per il Disclaimer Legale */
+.disclaimer-box {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    text-align: justify;
+}
+
+.disclaimer-box strong {
+    color: var(--primary);
+}
+
 /* Ottimizzazione per schermi mobile: se lo spazio è poco si centra sul fondo in modo fluido */
 @media (max-width: 480px) {
     .copyright-box {
