@@ -39,15 +39,23 @@ body {
 }
 
 header {
-    margin-bottom: 30px; /* Aumentato per dare respiro */
+    margin-bottom: 25px; 
 }
 
 header h1 { 
-    font-size: 1.8rem; /* Titolo leggermente più grande */
+    font-size: 1.8rem; 
     text-align: center; 
     color: var(--primary);
     font-weight: 700;
     letter-spacing: -0.5px;
+}
+
+header p {
+    text-align: center;
+    color: var(--accent-green);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-top: 10px; /* Spazio aggiunto per staccarla dal titolo ed evitare collisioni */
 }
 
 .form-group { 
@@ -154,20 +162,4 @@ button {
 
 .button-group button { 
     margin-top: 0; 
-}
-
-/* Stili per il nuovo Footer */
-.app-footer {
-    margin-top: 30px;
-    padding-top: 15px;
-    border-top: 1px solid var(--border);
-    text-align: center;
-}
-
-.app-footer p {
-    color: var(--text-muted);
-    font-size: 0.75rem;
-    line-height: 1.4;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
