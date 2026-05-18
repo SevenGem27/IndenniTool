@@ -1,17 +1,17 @@
 :root {
     /* Palette colori ufficiale ispirata a Banco BPM */
-    --primary: #1B2B4F;            /* Blu scuro/Nero della scritta BANCO */
-    --accent-green: #2E9169;       /* Verde della scritta BPM e dell'arco */
-    --accent-green-hover: #216d4e; /* Verde per lo stato premuto */
+    --primary: #1B2B4F;            
+    --accent-green: #2E9169;       
+    --accent-green-hover: #216d4e; 
     
     /* Nuova gestione sfondi premium */
-    --body-bg: #eef2f7;            /* Sfondo cool grey-blue di alto livello per il telefono */
-    --card-bg: #ffffff;            /* Bianco puro per far risaltare il pannello principale */
+    --body-bg: #eef2f7;            
+    --card-bg: #ffffff;            
     
-    --text-dark: #1C2434;          /* Testo principale scuro ad alta leggibilità */
-    --text-muted: #64748B;         /* Grigio ardesia per le note in piccolo */
-    --border: #CBD5E1;             /* Bordi sottili ed eleganti per i moduli */
-    --input-bg: #F8FAFC;           /* Sfondo dei campi di testo leggermente scavato */
+    --text-dark: #1C2434;          
+    --text-muted: #64748B;         
+    --border: #CBD5E1;             
+    --input-bg: #F8FAFC;           
 }
 
 * { 
@@ -33,33 +33,21 @@ body {
     margin: 0 auto; 
     background: var(--card-bg); 
     border-radius: 16px; 
-    
-    /* Finitura superiore solida che riprende il colore istituzionale */
     border-top: 6px solid var(--primary); 
-    
-    /* Ombra morbida e profonda stile iOS/Android nativo */
     box-shadow: 0 10px 25px -5px rgba(27, 43, 79, 0.08), 0 8px 10px -6px rgba(27, 43, 79, 0.08);
     padding: 25px 20px; 
 }
 
 header {
-    margin-bottom: 25px;
+    margin-bottom: 30px; /* Aumentato per dare respiro */
 }
 
 header h1 { 
-    font-size: 1.5rem; 
+    font-size: 1.8rem; /* Titolo leggermente più grande */
     text-align: center; 
     color: var(--primary);
     font-weight: 700;
     letter-spacing: -0.5px;
-}
-
-header p {
-    text-align: center;
-    color: var(--accent-green);
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin-top: 4px;
 }
 
 .form-group { 
@@ -87,7 +75,6 @@ select, input {
     transition: all 0.2s ease;
 }
 
-/* Effetto focus illuminato in verde quando si seleziona un campo */
 select:focus, input:focus {
     outline: none;
     border-color: var(--accent-green);
@@ -123,7 +110,7 @@ button {
 
 .btn-primary:active {
     background-color: var(--accent-green-hover);
-    transform: scale(0.98); /* Leggero feedback tattile alla pressione */
+    transform: scale(0.98); 
 }
 
 .btn-secondary { 
@@ -137,7 +124,6 @@ button {
     transform: scale(0.98);
 }
 
-/* Schermata dei Risultati Interna */
 .result-card { 
     background: #F1F5F9; 
     padding: 20px; 
@@ -168,4 +154,20 @@ button {
 
 .button-group button { 
     margin-top: 0; 
+}
+
+/* Stili per il nuovo Footer */
+.app-footer {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+.app-footer p {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
