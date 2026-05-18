@@ -8,7 +8,7 @@ const motiviAree = [
     { value: 'art86g', text: 'Morte (Art. 86 lett. g)' }
 ];
 
-const motiviDirigenti = [
+const motifsDirigenti = [
     { value: 'dimissioni_dir', text: 'Dimissioni del dirigente (Art. 26 c. 2)' },
     { value: 'impresa_dir', text: 'Risoluzione ad iniziativa dell\'impresa non per giusta causa (Art. 26 c. 1)' },
     { value: 'ingiustificato_dir', text: 'Licenziamento riconosciuto ingiustificato dal Collegio (Art. 28 c. 15)' },
@@ -27,7 +27,7 @@ function onCategoriaChange() {
     const oldVal = motivoSelect.value;
 
     motivoSelect.innerHTML = '';
-    const opzioni = categoria === 'dirigenti' ? motiviDirigenti : motiviAree;
+    const opzioni = categoria === 'dirigenti' ? motifsDirigenti : motiviAree;
     opzioni.forEach(opt => {
         const option = document.createElement('option');
         option.value = opt.value;
@@ -76,7 +76,7 @@ function calcola() {
     ralInput = ralInput.replace(/\./g, '').replace(/,/g, '.');
     const ral = parseFloat(ralInput) || 0;
     
-    const mensilitaEuro = ral / 12;
+    const alignmentEuro = ral / 12;
 
     let mensilitaSpettanti = 0;
     let testoMesi = "";
@@ -88,16 +88,15 @@ function calcola() {
     if (categoria !== 'dirigenti') {
         if (motivo === 'dimissioni') {
             mensilitaSpettanti = 1;
-            azione = "trattenere";
             esitoCustomHTML = `
                 <div style="border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 10px;">
                     <p style="margin-bottom: 5px;"><strong>Preavviso dovuto dal lavoratore:</strong></p>
-                    <p style="font-size: 1.1rem; color: #0056b3; font-weight: bold;">1 mese (Art. 88 comma 1)</p>
+                    <p style="font-size: 1.1rem; color: #1B2B4F; font-weight: bold;">1 mese (Art. 88 comma 1)</p>
                 </div>
                 <p><small>In caso di mancato preavviso lavorato, l'azienda può trattenere il relativo importo dalle competenze di fine rapporto.</small></p>
             `;
             if (ral > 0) {
-                importoTrattenereText = formatValuta(mensilitaSpettanti * mensilitaEuro);
+                importoTrattenereText = formatValuta(mensilitaSpettanti * alignmentEuro);
                 importoErogareText = "Nessuna erogazione a favore dipendente";
             }
         } 
@@ -112,28 +111,26 @@ function calcola() {
             if (categoria === 'terza') preavvisoBase = anzianita <= 5 ? 3 : (anzianita <= 10 ? 4 : (anzianita <= 15 ? 5 : 6));
             if (categoria === 'unificata') preavvisoBase = anzianita <= 5 ? 2 : (anzianita <= 10 ? 2.25 : (anzianita <= 15 ? 3 : 4));
             
-            // Indennità ulteriore Art. 88 comma 4
             let mesiArt88 = anzianita <= 10 ? 4 : 6; 
             mensilitaSpettanti = preavvisoBase + mesiArt88;
-            azione = "erogare";
             
             esitoCustomHTML = `
                 <div style="border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 10px;">
                     <p style="margin-bottom: 5px;"><strong>1. Indennità sostitutiva preavviso (equiparata a Giustificato Motivo):</strong></p>
-                    <p style="font-size: 1.1rem; color: #0056b3; font-weight: bold;">${preavvisoBase.toFixed(2)} mensilità</p>
+                    <p style="font-size: 1.1rem; color: #1B2B4F; font-weight: bold;">${preavvisoBase.toFixed(2)} mensilità</p>
                 </div>
                 <div style="border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 10px;">
                     <p style="margin-bottom: 5px;"><strong>2. Ulteriore Indennità (Art. 88 comma 4):</strong></p>
-                    <p style="font-size: 1.1rem; color: #0056b3; font-weight: bold;">${mesiArt88} mensilità</p>
+                    <p style="font-size: 1.1rem; color: #1B2B4F; font-weight: bold;">${mesiArt88} mensilità</p>
                 </div>
                 <div>
                     <p style="margin-bottom: 5px;"><strong>Totale Mesi/Mensilità spettanti:</strong></p>
-                    <p style="font-size: 1.1rem; color: #155724; font-weight: bold;">${mensilitaSpettanti.toFixed(2)} mensilità</p>
+                    <p style="font-size: 1.1rem; color: #2E9169; font-weight: bold;">${mensilitaSpettanti.toFixed(2)} mensilità</p>
                 </div>
             `;
             
             if (ral > 0) {
-                importoErogareText = formatValuta(mensilitaSpettanti * mensilitaEuro);
+                importoErogareText = formatValuta(mensilitaSpettanti * alignmentEuro);
                 importoTrattenereText = "Nessuna trattenuta a carico dipendente";
             }
         }
@@ -185,12 +182,11 @@ function calcola() {
             testoMesi = `${mensilitaSpettanti.toFixed(2)} mensilità/mesi`;
         }
     } else {
-        // --- DIRIGENTI ---
         if (motivo === 'dimissioni_dir') {
             mensilitaSpettanti = 3;
             testoMesi = `3 mensilità`;
             if (ral > 0) {
-                importoTrattenereText = formatValuta(mensilitaSpettanti * mensilitaEuro);
+                importoTrattenereText = formatValuta(mensilitaSpettanti * alignmentEuro);
                 importoErogareText = "Nessuna erogazione a favore dipendente";
             }
         }
@@ -202,14 +198,13 @@ function calcola() {
             }
             testoMesi = `${mensilitaSpettanti.toFixed(2)} mesi`;
             if (ral > 0) {
-                importoErogareText = formatValuta(mensilitaSpettanti * mensilitaEuro);
+                importoErogareText = formatValuta(mensilitaSpettanti * alignmentEuro);
                 importoTrattenereText = "Nessuna trattenuta a carico dipendente";
             }
         }
         else if (motivo === 'ingiustificato_dir') {
             isSpecialeDirigente = true;
             
-            // 1. Calcolo Preavviso puro
             let preavvisoBase = 0;
             if (previdenza === 'massima') {
                 preavvisoBase = 6;
@@ -217,7 +212,6 @@ function calcola() {
                 preavvisoBase = Math.min(5 + Math.max(0, anzianita - 2) * 0.5, 12);
             }
 
-            // 2. Calcolo Indennità Supplementare
             let maggiorazione = 0;
             if (anzianita > 10) {
                 if (eta === 46 || eta === 56) maggiorazione = 2;
@@ -233,28 +227,27 @@ function calcola() {
             esitoCustomHTML = `
                 <div style="border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 10px;">
                     <p style="margin-bottom: 5px;"><strong>1. Preavviso Contrattuale (Spettanza certa):</strong></p>
-                    <p style="font-size: 1.1rem; color: #0056b3; font-weight: bold;">${preavvisoBase.toFixed(2)} mesi</p>
-                    <p style="color: #155724; font-size: 0.95rem;">Erogazione Preavviso: ${ral > 0 ? formatValuta(preavvisoBase * mensilitaEuro) : '(Inserire RAL)'}</p>
+                    <p style="font-size: 1.1rem; color: #1B2B4F; font-weight: bold;">${preavvisoBase.toFixed(2)} mesi</p>
+                    <p style="color: #2E9169; font-size: 0.95rem;">Erogazione Preavviso: ${ral > 0 ? formatValuta(preavvisoBase * alignmentEuro) : '(Inserire RAL)'}</p>
                 </div>
                 <div>
                     <p style="margin-bottom: 5px;"><strong>2. Indennità Supplementare (Esito Collegio Arbitrale):</strong></p>
-                    <p style="font-size: 1.1rem; color: #0056b3; font-weight: bold;">Da ${indennitaMin} a ${indennitaMax} mensilità</p>
-                    <p style="color: #155724; font-size: 0.95rem;">Erogazione Indennità: ${ral > 0 ? `Tra ${formatValuta(indennitaMin * mensilitaEuro)} e ${formatValuta(indennitaMax * mensilitaEuro)}` : '(Inserire RAL)'}</p>
+                    <p style="font-size: 1.1rem; color: #1B2B4F; font-weight: bold;">Da ${indennitaMin} a ${indennitaMax} mensilità</p>
+                    <p style="color: #2E9169; font-size: 0.95rem;">Erogazione Indennità: ${ral > 0 ? `Tra ${formatValuta(indennitaMin * alignmentEuro)} e ${formatValuta(indennitaMax * alignmentEuro)}` : '(Inserire RAL)'}</p>
                     <p><small>Da corrispondersi in aggiunta al preavviso contrattuale.</small></p>
                 </div>
             `;
         }
     }
 
-    // Gestione standard se non ci sono override HTML 
     if (!esitoCustomHTML && testoMesi) {
         if (ral > 0 && importoErogareText === "N/A" && importoTrattenereText === "N/A") {
-            importoErogareText = formatValuta(mensilitaSpettanti * mensilitaEuro);
+            importoErogareText = formatValuta(mensilitaSpettanti * alignmentEuro);
             importoTrattenereText = "Nessuna trattenuta a carico dipendente";
         }
         esitoCustomHTML = `
             <p style="margin-bottom: 5px;"><strong>Mesi/Mensilità teorici:</strong></p>
-            <p style="font-size: 1.1rem; color: #0056b3; font-weight: bold;">${testoMesi}</p>
+            <p style="font-size: 1.1rem; color: #1B2B4F; font-weight: bold;">${testoMesi}</p>
         `;
     }
 
@@ -265,12 +258,11 @@ function calcola() {
         </div>
     `;
 
-    // Aggiungo i box colorati solo se l'importo non è già esplicitato nei blocchi sopra (es. dirigenti ingiustificato)
     if (!isSpecialeDirigente && importoErogareText !== "N/A") {
         layoutRisultati += `
             <div style="background: #e6f4ea; padding: 10px; border-radius: 8px; margin-bottom:10px; border: 1px solid #c3e6cb;">
                 <p style="margin-bottom: 5px;"><strong>Importo Eventualmente DA EROGARE:</strong></p>
-                <p style="font-size: 1.1rem; color: #155724; font-weight: bold;">${importoErogareText}</p>
+                <p style="font-size: 1.1rem; color: #2E9169; font-weight: bold;">${importoErogareText}</p>
             </div>
             <div style="background: #f8d7da; padding: 10px; border-radius: 8px; border: 1px solid #f5c6cb;">
                 <p style="margin-bottom: 5px;"><strong>Importo Eventualmente DA TRATTENERE:</strong></p>
@@ -282,7 +274,7 @@ function calcola() {
         layoutRisultati += `
             <div style="background: #e6f4ea; padding: 10px; border-radius: 8px; margin-bottom:10px; border: 1px solid #c3e6cb;">
                 <p style="margin-bottom: 5px;"><strong>Importo Eventualmente DA EROGARE:</strong></p>
-                <p style="font-size: 1.1rem; color: #155724; font-weight: bold;">${missingTesto}</p>
+                <p style="font-size: 1.1rem; color: #2E9169; font-weight: bold;">${missingTesto}</p>
             </div>
             <div style="background: #f8d7da; padding: 10px; border-radius: 8px; border: 1px solid #f5c6cb;">
                 <p style="margin-bottom: 5px;"><strong>Importo Eventualmente DA TRATTENERE:</strong></p>
@@ -310,16 +302,141 @@ function resetForm() {
     document.getElementById('result-screen').style.display = 'none';
 }
 
+// NUOVA FUNZIONE ESPORTA PDF TOTALMENTE RIVISITATA E STYLATA LATO CLIENT
 function esportaPDF() {
     const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-    const resElement = document.getElementById('result-content');
-    const testoPuro = resElement.innerText || resElement.textContent;
+    const doc = new jsPDF('p', 'mm', 'a4');
 
-    doc.setFontSize(16);
-    doc.text("Report Calcolo Preavviso/Indennità (CCNL Credito)", 10, 20);
-    doc.setFontSize(11);
-    const splitText = doc.splitTextToSize(testoPuro, 180);
-    doc.text(splitText, 10, 35);
-    doc.save("report-credito.pdf");
+    // Recupero i testi puliti dalle selezioni correnti dell'utente
+    const catText = document.getElementById('categoria').options[document.getElementById('categoria').selectedIndex].text;
+    const motText = document.getElementById('motivo').options[document.getElementById('motivo').selectedIndex].text;
+    const anzText = document.getElementById('anzianita').value + " anni";
+    
+    let ralVal = document.getElementById('ral').value || "Non indicata";
+    if (ralVal !== "Non indicata" && !ralVal.includes("€")) ralVal = "€ " + ralVal;
+
+    // Estrazione dei dati calcolati dai nodi interni dell'app
+    const resCard = document.getElementById('result-content');
+    const boldTexts = resCard.getElementsByTagName('p');
+    
+    // --- 1. BANNER DI TESTATA (Stile Istituzionale Blu Banco)
+    doc.setFillColor(27, 43, 79); // #1B2B4F
+    doc.rect(0, 0, 210, 38, 'F');
+
+    doc.setTextColor(255, 255, 255);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(22);
+    doc.text("IndenniTool", 15, 18);
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.setTextColor(180, 195, 220);
+    doc.text("REPORT UFFICIALE DI CALCOLO PREAVVISO E INDENNITÀ", 15, 28);
+
+    let y = 52;
+
+    // --- 2. SEZIONE: RIEPILOGO DATI INSERITI
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(13);
+    doc.setTextColor(27, 43, 79); // #1B2B4F
+    doc.text("1. RIEPILOGO DATI CONTRATTUALI", 15, y);
+    
+    y += 4;
+    doc.setDrawColor(203, 213, 225); // Linea sottile grigia
+    doc.setLineWidth(0.4);
+    doc.line(15, y, 195, y);
+    
+    y += 10;
+    doc.setFontSize(10);
+    doc.setTextColor(80, 80, 80);
+
+    // Array chiave-valore per la stampa ordinata
+    const datiRiepilogo = [
+        { k: "Categoria Contrattuale:", v: catText },
+        { k: "Motivo Risoluzione:", v: motText },
+        { k: "Anzianità di Servizio:", v: anzText },
+        { k: "Retribuzione Annua Lorda (RAL):", v: ralVal }
+    ];
+
+    if (document.getElementById('group-eta').style.display === 'block') {
+        datiRiepilogo.push({ k: "Età Anagrafica Dirigente:", v: document.getElementById('eta').value + " anni" });
+    }
+
+    datiRiepilogo.forEach(item => {
+        doc.setFont("helvetica", "bold");
+        doc.setTextColor(27, 43, 79);
+        doc.text(item.k, 15, y);
+        
+        doc.setFont("helvetica", "normal");
+        doc.setTextColor(40, 40, 40);
+        
+        // Split testo automatico per motivi molto lunghi (evita l'effetto fuori pagina)
+        const splitVal = doc.splitTextToSize(item.v, 120);
+        doc.text(splitVal, 72, y);
+        
+        // Calcolo dinamico dell'altezza in caso di testi a più righe
+        y += (splitVal.length > 1) ? (splitVal.length * 5) : 7;
+    });
+
+    // --- 3. SEZIONE: ESITO DEL CALCOLO
+    y += 8;
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(13);
+    doc.setTextColor(27, 43, 79);
+    doc.text("2. RISULTATI ECONOMICI E SPETTANZE", 15, y);
+    
+    y += 4;
+    doc.line(15, y, 195, y);
+    y += 10;
+
+    // Estraiamo in modo pulito i blocchi di testo generati dall'applicazione
+    const pElements = resCard.querySelectorAll('p');
+    
+    pElements.forEach(p => {
+        const testoCompleto = p.innerText || p.textContent;
+        // Salto i riepiloghi in piccolo duplicati in fondo alla scheda risultati
+        if (testoCompleto.includes("Categoria:") || testoCompleto.includes("Motivo:") || testoCompleto.includes("Anzianità:") || testoCompleto.includes("RAL Indicata:")) {
+            return;
+        }
+
+        // Se il testo contiene etichette forti (es. Mesi teorici, Importo da erogare, ecc.)
+        if (p.querySelector('strong')) {
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(10);
+            doc.setTextColor(70, 80, 95);
+            doc.text(p.querySelector('strong').innerText, 15, y);
+            y += 5.5;
+            return;
+        }
+
+        // È un valore numerico/economico calcolato (il testo colorato grande nell'interfaccia)
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(12);
+
+        // Colorazione logica condizionale coordinata
+        if (testoCompleto.includes("DA EROGARE") || (testoCompleto.includes("€") && !testoCompleto.includes("trattenuta") && !testoCompleto.includes("TRATTENERE"))) {
+            doc.setTextColor(46, 145, 105); // Verde BPM
+        } else if (testoCompleto.includes("DA TRATTENERE") || (testoCompleto.includes("€") && testoCompleto.includes("trattenuta"))) {
+            doc.setTextColor(114, 28, 36); // Rosso scuro trattenute
+        } else {
+            doc.setTextColor(27, 43, 79); // Blu Scuro Standard
+        }
+
+        const splitRisultato = doc.splitTextToSize(testoCompleto, 175);
+        doc.text(splitRisultato, 15, y);
+        y += (splitRisultato.length * 5) + 6;
+    });
+
+    // --- 4. PIÈ DI PAGINA (Elegante e discreto)
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(8);
+    doc.setTextColor(140, 150, 165);
+    doc.line(15, 278, 195, 278);
+    
+    const oggi = new Date().toLocaleDateString('it-IT');
+    doc.text(`Documento generato da IndenniToolApp in data ${oggi}`, 15, 284);
+    doc.text("Pagina 1 di 1", 175, 284);
+
+    // Download del file con il nome corretto
+    doc.save("Report-IndenniTool.pdf");
 }
