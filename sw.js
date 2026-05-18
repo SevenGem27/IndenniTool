@@ -1,4 +1,4 @@
-const CACHE_NAME = 'preavviso-cache-v4'; // Incrementa sempre questo numero a ogni modifica (es. v4, v5, v6...)
+const CACHE_NAME = 'preavviso-cache-v5'; // Incrementa sempre questo numero a ogni modifica (es. v4, v5, v6...)
 const urlsToCache = [
   './',
   './index.html',
