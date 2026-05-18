@@ -26,6 +26,7 @@ body {
     color: var(--text-dark); 
     padding: 20px 15px; 
     min-height: 100vh;
+    position: relative;
 }
 
 .app-container { 
@@ -36,6 +37,7 @@ body {
     border-top: 6px solid var(--primary); 
     box-shadow: 0 10px 25px -5px rgba(27, 43, 79, 0.08), 0 8px 10px -6px rgba(27, 43, 79, 0.08);
     padding: 25px 20px; 
+    margin-bottom: 30px; /* Spazio sul fondo per evitare sovrapposizioni su schermi corti */
 }
 
 header {
@@ -55,7 +57,7 @@ header p {
     color: var(--accent-green);
     font-size: 0.95rem;
     font-weight: 500;
-    margin-top: 10px; /* Spazio aggiunto per staccarla dal titolo ed evitare collisioni */
+    margin-top: 10px;
 }
 
 .form-group { 
@@ -162,4 +164,30 @@ button {
 
 .button-group button { 
     margin-top: 0; 
+}
+
+/* Stile per il posizionamento del Copyright nell'angolo basso dello schermo */
+.copyright-box {
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+    font-size: 0.68rem;
+    color: #94A3B8; /* Grigio chiaro elegante */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    pointer-events: none; /* Evita interazioni fastidiose al tocco */
+    z-index: 999;
+}
+
+/* Ottimizzazione per schermi mobile: se lo spazio è poco si centra sul fondo in modo fluido */
+@media (max-width: 480px) {
+    .copyright-box {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        text-align: center;
+        margin-top: 20px;
+        padding-bottom: 10px;
+        display: block;
+    }
 }
