@@ -89,5 +89,36 @@
             navigator.serviceWorker.register('sw.js');
         }
     </script>
+        <!-- Inizio Banner Installazione iOS -->
+<div id="ios-install-banner" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #ffffff; color: #333; padding: 15px; border-radius: 12px; box-shadow: 0px 4px 15px rgba(0,0,0,0.2); z-index: 9999; text-align: center; width: 85%; font-family: -apple-system, sans-serif;">
+  <p style="margin: 0 0 10px 0; font-size: 15px; line-height: 1.4;">
+    Installa <strong>Scacchi Training</strong> sul tuo iPhone!<br><br>
+    Tocca i tre puntini in basso a destra, l'icona <strong>Condividi</strong> (il quadrato con la freccia in basso) e seleziona <strong>"Aggiungi alla schermata Home"</strong>. Se non trovi questa voce, scorri fino in fondo, tocca <strong>"Modifica azioni"</strong> e aggiungila all'elenco. Se disponibile spunta l'opzione <strong>"Apri come app web"</strong> e <strong>"Aggiungi"</strong>."
+  </p>
+  <button onclick="document.getElementById('ios-install-banner').style.display='none'" style="padding: 8px 20px; border: none; background: #007aff; color: white; font-weight: bold; border-radius: 8px; cursor: pointer;">
+    Ho capito
+  </button>
+  <!-- Triangolino che punta verso il basso -->
+  <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); border-width: 10px 10px 0; border-style: solid; border-color: #ffffff transparent transparent transparent;"></div>
+</div>
+
+<script>
+  // Rileva se il dispositivo è iOS
+  const isIos = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+  };
+  
+  // Rileva se l'app è già avviata in modalità standalone (Schermata Home)
+  const isStandalone = () => {
+    return ('standalone' in window.navigator) && (window.navigator.standalone);
+  };
+
+  // Se è un iPhone e non è ancora sulla Home, mostra il banner
+  if (isIos() && !isStandalone()) {
+    document.getElementById('ios-install-banner').style.display = 'block';
+  }
+</script>
+<!-- Fine Banner Installazione iOS -->
 </body>
 </html>
