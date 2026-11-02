@@ -111,8 +111,39 @@
 
     <script src="script.js"></script>
     <script>
+        // Aggiornamento automatico: all'apertura e ogni volta che l'app torna in primo piano
+        // si controlla se è stata pubblicata una nuova versione; se sì la pagina si ricarica da sola.
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js');
+            const avevaGiaUnaVersione = !!navigator.serviceWorker.controller;
+            let utenteAttivo = false;      // l'utente ha già iniziato a compilare
+            let aggiornamentoInSospeso = false;
+            let ricaricando = false;
+
+            ['input', 'change', 'click'].forEach(function (evento) {
+                document.addEventListener(evento, function () { utenteAttivo = true; }, true);
+            });
+
+            function ricarica() {
+                if (ricaricando) return;
+                ricaricando = true;
+                window.location.reload();
+            }
+
+            navigator.serviceWorker.addEventListener('controllerchange', function () {
+                if (!avevaGiaUnaVersione) return; // prima installazione: niente da ricaricare
+                // Per non far perdere i dati inseriti, se l'utente sta già usando l'app
+                // la nuova versione viene caricata alla prossima apertura.
+                if (utenteAttivo) aggiornamentoInSospeso = true;
+                else ricarica();
+            });
+
+            navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).then(function (reg) {
+                document.addEventListener('visibilitychange', function () {
+                    if (document.visibilityState !== 'visible') return;
+                    if (aggiornamentoInSospeso) { ricarica(); return; }
+                    reg.update().catch(function () {});
+                });
+            });
         }
 
         (function () {
