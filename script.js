@@ -1,1 +1,577 @@
-const _0x455272=_0x1f72;(function(_0x4723d1,_0x263513){const _0x2ffd88=_0x1f72,_0x80c26a=_0x4723d1();while(!![]){try{const _0x216385=parseInt(_0x2ffd88(0xc3))/0x1*(-parseInt(_0x2ffd88(0xe4))/0x2)+-parseInt(_0x2ffd88(0x89))/0x3+-parseInt(_0x2ffd88(0xce))/0x4*(parseInt(_0x2ffd88(0xcb))/0x5)+-parseInt(_0x2ffd88(0x10c))/0x6*(parseInt(_0x2ffd88(0x94))/0x7)+-parseInt(_0x2ffd88(0xdb))/0x8*(parseInt(_0x2ffd88(0x8e))/0x9)+parseInt(_0x2ffd88(0xf9))/0xa*(-parseInt(_0x2ffd88(0xd6))/0xb)+parseInt(_0x2ffd88(0xec))/0xc*(parseInt(_0x2ffd88(0xc6))/0xd);if(_0x216385===_0x263513)break;else _0x80c26a['push'](_0x80c26a['shift']());}catch(_0x34f6c0){_0x80c26a['push'](_0x80c26a['shift']());}}}(_0x1223,0x55483));const motiviAree=[{'value':'dimissioni','text':_0x455272(0xdf)},{'value':_0x455272(0xe5),'text':_0x455272(0xe6)},{'value':'art86b','text':_0x455272(0xac)},{'value':'art86c','text':_0x455272(0xc7)},{'value':_0x455272(0xc8),'text':'Licenziamento\x20per\x20giusta\x20causa\x20(Art.\x2086\x20lett.\x20d)'},{'value':_0x455272(0x9d),'text':'Dimissioni\x20per\x20giusta\x20causa\x20(Art.\x2086\x20lett.\x20f)'},{'value':_0x455272(0xd7),'text':_0x455272(0x9a)}],motiviDirigenti=[{'value':'dimissioni_dir','text':_0x455272(0x92)},{'value':_0x455272(0xe3),'text':_0x455272(0xd8)},{'value':_0x455272(0xba),'text':_0x455272(0x87)},{'value':_0x455272(0xc2),'text':_0x455272(0xa6)}];document[_0x455272(0x10b)]('DOMContentLoaded',function(){const _0x14c1c8=_0x455272;document[_0x14c1c8(0xad)](_0x14c1c8(0xbe))[_0x14c1c8(0x10b)]('change',onCategoriaChange),document['getElementById'](_0x14c1c8(0x86))[_0x14c1c8(0x10b)](_0x14c1c8(0xa7),onMotivoChange),onCategoriaChange();});function onCategoriaChange(){const _0x3b21d7=_0x455272,_0xf75ede=document[_0x3b21d7(0xad)](_0x3b21d7(0xbe))[_0x3b21d7(0xae)],_0x2091bf=document['getElementById']('motivo'),_0x21213b=_0x2091bf[_0x3b21d7(0xae)];_0x2091bf['innerHTML']='';const _0x1b87ea=_0xf75ede==='dirigenti'?motiviDirigenti:motiviAree;_0x1b87ea[_0x3b21d7(0x97)](_0x2d27d9=>{const _0x531961=_0x3b21d7,_0x5a5510=document[_0x531961(0xe7)]('option');_0x5a5510[_0x531961(0xae)]=_0x2d27d9[_0x531961(0xae)],_0x5a5510[_0x531961(0xff)]=_0x2d27d9[_0x531961(0xf1)],_0x2091bf[_0x531961(0xa5)](_0x5a5510);});_0x1b87ea[_0x3b21d7(0xb4)](_0x4b224a=>_0x4b224a['value']===_0x21213b)&&(_0x2091bf['value']=_0x21213b);const _0x20e075=document['getElementById']('previdenza'),_0x19eb30=document[_0x3b21d7(0xad)]('opt-inferiore');if(_0xf75ede===_0x3b21d7(0x106)){if(_0x19eb30)_0x19eb30[_0x3b21d7(0x9c)]['display']=_0x3b21d7(0xc4);if(_0x20e075[_0x3b21d7(0xae)]===_0x3b21d7(0xe8))_0x20e075['value']=_0x3b21d7(0x8a);}else{if(_0x19eb30)_0x19eb30['style']['display']=_0x3b21d7(0x88);}onMotivoChange();}function _0x1f72(_0x57c683,_0x263e7f){_0x57c683=_0x57c683-0x86;const _0x122317=_0x1223();let _0x1f723b=_0x122317[_0x57c683];return _0x1f723b;}function onMotivoChange(){const _0x37e1ea=_0x455272,_0x293329=document['getElementById'](_0x37e1ea(0xbe))[_0x37e1ea(0xae)],_0x182fcb=document[_0x37e1ea(0xad)](_0x37e1ea(0x86))[_0x37e1ea(0xae)],_0x137906=document[_0x37e1ea(0xad)](_0x37e1ea(0xaf));_0x137906[_0x37e1ea(0x9c)][_0x37e1ea(0xdc)]=_0x293329===_0x37e1ea(0x106)&&_0x182fcb===_0x37e1ea(0xba)?_0x37e1ea(0x88):_0x37e1ea(0xc4);}function formatValuta(_0x3e956a){const _0x32b60e=_0x455272;if(!_0x3e956a||isNaN(_0x3e956a))return _0x32b60e(0xfd);return new Intl['NumberFormat']('it-IT',{'style':_0x32b60e(0xa1),'currency':_0x32b60e(0xf8)})[_0x32b60e(0xb7)](_0x3e956a);}function calcola(){const _0x1ed452=_0x455272,_0x1d6403=document[_0x1ed452(0xad)](_0x1ed452(0xbe))[_0x1ed452(0xae)],_0x9f29b1=document[_0x1ed452(0xad)](_0x1ed452(0x86))[_0x1ed452(0xae)],_0x32c7f8=parseFloat(document[_0x1ed452(0xad)](_0x1ed452(0xbb))[_0x1ed452(0xae)])||0x0,_0x28421c=document[_0x1ed452(0xad)](_0x1ed452(0xcc))[_0x1ed452(0xae)],_0x103310=parseInt(document['getElementById']('eta')['value'])||0x0;let _0x5f396f=document[_0x1ed452(0xad)](_0x1ed452(0x95))[_0x1ed452(0xae)];_0x5f396f=_0x5f396f[_0x1ed452(0xa2)](/\./g,'')[_0x1ed452(0xa2)](/,/g,'.');const _0x49ccde=parseFloat(_0x5f396f)||0x0,_0x2da718=_0x49ccde/0xc;let _0x34cf82=0x0,_0x64819f='',_0x1d026a='',_0x111561=_0x1ed452(0xb2),_0x429e0f=_0x1ed452(0xb2),_0x1f1dda=![];if(_0x1d6403!==_0x1ed452(0x106)){if(_0x9f29b1===_0x1ed452(0xf0))_0x34cf82=0x1,_0x1d026a=_0x1ed452(0x96),_0x49ccde>0x0&&(_0x429e0f=formatValuta(_0x34cf82*_0x2da718),_0x111561=_0x1ed452(0xd9));else{if(_0x9f29b1==='art86d')_0x1d026a='<p><strong>Mesi/Mensilità\x20teorici:</strong>\x20Nessun\x20preavviso\x20spettante.\x20Risoluzione\x20immediata\x20(ex\x20art.\x202119\x20c.c.).</p>',_0x111561=_0x1ed452(0xfd),_0x429e0f=_0x1ed452(0xfd);else{if(_0x9f29b1===_0x1ed452(0x9d)){let _0x3ddecf=0x0;if(_0x1d6403===_0x1ed452(0xbc))_0x3ddecf=_0x32c7f8<=0x5?0x5:_0x32c7f8<=0xa?0x6:_0x32c7f8<=0xf?0x7:0x8;if(_0x1d6403===_0x1ed452(0xd2))_0x3ddecf=_0x32c7f8<=0x5?0x3:_0x32c7f8<=0xa?0x4:_0x32c7f8<=0xf?0x5:0x6;if(_0x1d6403===_0x1ed452(0x8c))_0x3ddecf=_0x32c7f8<=0x5?0x2:_0x32c7f8<=0xa?2.25:_0x32c7f8<=0xf?0x3:0x4;let _0x53d754=_0x32c7f8<=0xa?0x4:0x6;_0x34cf82=_0x3ddecf+_0x53d754,_0x1d026a=_0x1ed452(0xe2)+_0x3ddecf['toFixed'](0x2)+'\x20mensilità</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22border-bottom:\x201px\x20solid\x20#ddd;\x20padding-bottom:\x2010px;\x20margin-bottom:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22margin-bottom:\x205px;\x22><strong>2.\x20Ulteriore\x20Indennità\x20(Art.\x2088\x20comma\x204):</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:\x201.1rem;\x20color:\x20#1B2B4F;\x20font-weight:\x20bold;\x22>'+_0x53d754+'\x20mensilità</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22margin-bottom:\x205px;\x22><strong>Totale\x20Mesi/Mensilità\x20spettanti:</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:\x201.1rem;\x20color:\x20#2E9169;\x20font-weight:\x20bold;\x22>'+_0x34cf82[_0x1ed452(0x10d)](0x2)+'\x20mensilità</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20',_0x49ccde>0x0&&(_0x111561=formatValuta(_0x34cf82*_0x2da718),_0x429e0f=_0x1ed452(0xfe));}else{if(_0x9f29b1===_0x1ed452(0xe5)){let _0x57618f=0x0;if(_0x1d6403===_0x1ed452(0xbc))_0x57618f=Math[_0x1ed452(0xa8)](0x5+Math['max'](0x0,_0x32c7f8-0x6)*0.5,0xa);if(_0x1d6403===_0x1ed452(0xd2))_0x57618f=Math[_0x1ed452(0xa8)](Math[_0x1ed452(0xb6)](_0x32c7f8*0.5,0x2),0x8);if(_0x1d6403===_0x1ed452(0x8c))_0x57618f=Math[_0x1ed452(0xa8)](Math['max'](_0x32c7f8*(0x1/0x3),1.5),0x6);if(_0x28421c==='massima'){if(_0x1d6403===_0x1ed452(0xbc))_0x34cf82=0x4;if(_0x1d6403===_0x1ed452(0xd2))_0x34cf82=0x2;if(_0x1d6403===_0x1ed452(0x8c))_0x34cf82=1.5;}else _0x28421c===_0x1ed452(0xe8)?_0x34cf82=_0x57618f*0.75:_0x34cf82=_0x57618f;_0x64819f=_0x34cf82[_0x1ed452(0x10d)](0x2)+_0x1ed452(0x9e);}else{if(_0x9f29b1===_0x1ed452(0x8d)){if(_0x28421c===_0x1ed452(0x10a)||_0x28421c===_0x1ed452(0xe8)){if(_0x1d6403===_0x1ed452(0xbc))_0x34cf82=0x4;if(_0x1d6403===_0x1ed452(0xd2))_0x34cf82=0x2;if(_0x1d6403===_0x1ed452(0x8c))_0x34cf82=1.5;}else{if(_0x1d6403===_0x1ed452(0xbc))_0x34cf82=_0x32c7f8<=0x5?0x4:_0x32c7f8<=0xa?0x5:0x6;if(_0x1d6403==='terza')_0x34cf82=_0x32c7f8<=0x5?0x2:_0x32c7f8<=0xa?0x3:0x4;if(_0x1d6403==='unificata')_0x34cf82=_0x32c7f8<=0x5?0x1:_0x32c7f8<=0xa?0x2:0x3;}_0x64819f=_0x34cf82[_0x1ed452(0x10d)](0x2)+_0x1ed452(0x9e);}else{if(_0x9f29b1===_0x1ed452(0xf3)){if(_0x1d6403===_0x1ed452(0xbc))_0x34cf82=_0x32c7f8<=0x5?0x5:_0x32c7f8<=0xa?0x6:_0x32c7f8<=0xf?0x7:0x8;if(_0x1d6403===_0x1ed452(0xd2))_0x34cf82=_0x32c7f8<=0x5?0x3:_0x32c7f8<=0xa?0x4:_0x32c7f8<=0xf?0x5:0x6;if(_0x1d6403==='unificata')_0x34cf82=_0x32c7f8<=0x5?0x2:_0x32c7f8<=0xa?2.25:_0x32c7f8<=0xf?0x3:0x4;_0x64819f=_0x34cf82['toFixed'](0x2)+_0x1ed452(0x9e);}else{if(_0x9f29b1==='art86g'){if(_0x28421c==='massima'||_0x28421c===_0x1ed452(0xe8)){if(_0x1d6403===_0x1ed452(0xbc))_0x34cf82=0x5;if(_0x1d6403===_0x1ed452(0xd2))_0x34cf82=0x3;if(_0x1d6403==='unificata')_0x34cf82=2.5;}else{if(_0x1d6403==='quadri')_0x34cf82=Math[_0x1ed452(0xa8)](0x5+Math[_0x1ed452(0xb6)](0x0,_0x32c7f8-0x6)*0.5,0xa);if(_0x1d6403==='terza')_0x34cf82=_0x32c7f8<=0x5?0x2:_0x32c7f8<=0xa?0x3:0x4;if(_0x1d6403===_0x1ed452(0x8c))_0x34cf82=_0x32c7f8<=0x5?0x1:_0x32c7f8<=0xa?0x2:0x3;}_0x64819f=_0x34cf82[_0x1ed452(0x10d)](0x2)+'\x20mensilità/mesi';}}}}}}}}else{if(_0x9f29b1==='dimissioni_dir')_0x34cf82=0x3,_0x64819f=_0x1ed452(0xb5),_0x49ccde>0x0&&(_0x429e0f=formatValuta(_0x34cf82*_0x2da718),_0x111561=_0x1ed452(0xd9));else{if(_0x9f29b1===_0x1ed452(0xe3)||_0x9f29b1===_0x1ed452(0xc2))_0x28421c===_0x1ed452(0x10a)?_0x34cf82=_0x9f29b1===_0x1ed452(0xe3)?0x6:0x7:_0x34cf82=Math[_0x1ed452(0xa8)](0x5+Math[_0x1ed452(0xb6)](0x0,_0x32c7f8-0x2)*0.5,0xc),_0x64819f=_0x34cf82[_0x1ed452(0x10d)](0x2)+_0x1ed452(0x8b),_0x49ccde>0x0&&(_0x111561=formatValuta(_0x34cf82*_0x2da718),_0x429e0f=_0x1ed452(0xfe));else{if(_0x9f29b1===_0x1ed452(0xba)){_0x1f1dda=!![];let _0x5e9cd8=0x0;_0x28421c==='massima'?_0x5e9cd8=0x6:_0x5e9cd8=Math['min'](0x5+Math[_0x1ed452(0xb6)](0x0,_0x32c7f8-0x2)*0.5,0xc);let _0x19b61f=0x0;if(_0x32c7f8>0xa){if(_0x103310===0x2e||_0x103310===0x38)_0x19b61f=0x2;else{if(_0x103310===0x2f||_0x103310===0x37)_0x19b61f=0x3;else{if(_0x103310===0x30||_0x103310===0x36)_0x19b61f=0x4;else{if(_0x103310===0x31||_0x103310===0x35)_0x19b61f=0x5;else{if(_0x103310===0x32||_0x103310===0x34)_0x19b61f=0x6;else{if(_0x103310===0x33)_0x19b61f=0x7;}}}}}}let _0x2d7084=0x7+_0x19b61f,_0x462a76=0x16+_0x19b61f;_0x1d026a=_0x1ed452(0xab)+_0x5e9cd8[_0x1ed452(0x10d)](0x2)+_0x1ed452(0x9f)+(_0x49ccde>0x0?formatValuta(_0x5e9cd8*_0x2da718):_0x1ed452(0xd5))+_0x1ed452(0xc0)+_0x2d7084+_0x1ed452(0xa0)+_0x462a76+_0x1ed452(0xc1)+(_0x49ccde>0x0?'Tra\x20'+formatValuta(_0x2d7084*_0x2da718)+'\x20e\x20'+formatValuta(_0x462a76*_0x2da718):_0x1ed452(0xd5))+_0x1ed452(0xcd);}}}}!_0x1d026a&&_0x64819f&&(_0x49ccde>0x0&&_0x111561===_0x1ed452(0xb2)&&_0x429e0f===_0x1ed452(0xb2)&&(_0x111561=formatValuta(_0x34cf82*_0x2da718),_0x429e0f='Nessuna\x20trattenuta\x20a\x20carico\x20dipendente'),_0x1d026a=_0x1ed452(0x101)+_0x64819f+'</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20');let _0x4b6d92=_0x1ed452(0xb9)+_0x1d026a+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20';if(!_0x1f1dda&&_0x111561!==_0x1ed452(0xb2))_0x4b6d92+='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:\x20#e6f4ea;\x20padding:\x2010px;\x20border-radius:\x208px;\x20margin-bottom:10px;\x20border:\x201px\x20solid\x20#c3e6cb;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22margin-bottom:\x205px;\x22><strong>Importo\x20Eventualmente\x20DA\x20EROGARE:</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:\x201.1rem;\x20color:\x20#2E9169;\x20font-weight:\x20bold;\x22>'+_0x111561+'</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:\x20#f8d7da;\x20padding:\x2010px;\x20border-radius:\x208px;\x20border:\x201px\x20solid\x20#f5c6cb;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22margin-bottom:\x205px;\x22><strong>Importo\x20Eventualmente\x20DA\x20TRATTENERE:</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:\x201.1rem;\x20color:\x20#721c24;\x20font-weight:\x20bold;\x22>'+_0x429e0f+'</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20';else{if(!_0x1f1dda&&_0x49ccde===0x0){const _0x1a418f=_0x1ed452(0xb0);_0x4b6d92+=_0x1ed452(0x100)+_0x1a418f+'</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:\x20#f8d7da;\x20padding:\x2010px;\x20border-radius:\x208px;\x20border:\x201px\x20solid\x20#f5c6cb;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22margin-bottom:\x205px;\x22><strong>Importo\x20Eventualmente\x20DA\x20TRATTENERE:</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:\x201.1rem;\x20color:\x20#721c24;\x20font-weight:\x20bold;\x22>'+_0x1a418f+_0x1ed452(0xaa);}}document[_0x1ed452(0xad)]('input-screen')[_0x1ed452(0x9c)][_0x1ed452(0xdc)]='none',document['getElementById'](_0x1ed452(0xa3))[_0x1ed452(0x9c)][_0x1ed452(0xdc)]=_0x1ed452(0x88),document[_0x1ed452(0xad)](_0x1ed452(0xc5))[_0x1ed452(0x8f)]=_0x1ed452(0x99)+_0x4b6d92+_0x1ed452(0x90)+document[_0x1ed452(0xad)]('categoria')[_0x1ed452(0x108)][document['getElementById']('categoria')['selectedIndex']][_0x1ed452(0xf1)]+_0x1ed452(0x109)+document['getElementById'](_0x1ed452(0x86))['options'][document['getElementById'](_0x1ed452(0x86))[_0x1ed452(0xe9)]][_0x1ed452(0xf1)]+_0x1ed452(0x102)+_0x32c7f8+'\x20anni</small></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p><small><strong>RAL\x20Indicata:</strong>\x20'+(_0x49ccde>0x0?formatValuta(_0x49ccde):_0x1ed452(0xbf))+'</small></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20'+(_0x1d6403==='dirigenti'&&_0x9f29b1===_0x1ed452(0xba)?_0x1ed452(0xfa)+_0x103310+_0x1ed452(0x104):'')+_0x1ed452(0x93);}function resetForm(){const _0x2b6d6c=_0x455272;document[_0x2b6d6c(0xad)](_0x2b6d6c(0x105))['style'][_0x2b6d6c(0xdc)]=_0x2b6d6c(0x88),document[_0x2b6d6c(0xad)]('result-screen')['style']['display']=_0x2b6d6c(0xc4);}function esportaPDF(){const _0x42ffd8=_0x455272,{jsPDF:_0x5739c6}=window[_0x42ffd8(0xa4)],_0x41e2b4=new _0x5739c6('p','mm','a4'),_0x36686b=document[_0x42ffd8(0xad)](_0x42ffd8(0xbe))['options'][document['getElementById'](_0x42ffd8(0xbe))[_0x42ffd8(0xe9)]][_0x42ffd8(0xf1)],_0x53bbc5=document[_0x42ffd8(0xad)](_0x42ffd8(0x86))[_0x42ffd8(0x108)][document['getElementById']('motivo')['selectedIndex']]['text'],_0x4817a2=document['getElementById'](_0x42ffd8(0xbb))[_0x42ffd8(0xae)]+_0x42ffd8(0xd3);let _0x1951e6=document[_0x42ffd8(0xad)](_0x42ffd8(0x95))['value']||_0x42ffd8(0xbf);if(_0x1951e6!==_0x42ffd8(0xbf)&&!_0x1951e6['includes']('€'))_0x1951e6='€\x20'+_0x1951e6;const _0x59387=document['getElementById'](_0x42ffd8(0xc5));_0x41e2b4[_0x42ffd8(0x98)](0x1b,0x2b,0x4f),_0x41e2b4[_0x42ffd8(0xee)](0x0,0x0,0xd2,0x26,'F'),_0x41e2b4['setTextColor'](0xff,0xff,0xff),_0x41e2b4[_0x42ffd8(0xca)](_0x42ffd8(0x103),_0x42ffd8(0xda)),_0x41e2b4[_0x42ffd8(0xa9)](0x16),_0x41e2b4[_0x42ffd8(0xf1)](_0x42ffd8(0xe0),0xf,0x12),_0x41e2b4[_0x42ffd8(0xca)](_0x42ffd8(0x103),_0x42ffd8(0xf6)),_0x41e2b4[_0x42ffd8(0xa9)](0xa),_0x41e2b4[_0x42ffd8(0xeb)](0xb4,0xc3,0xdc),_0x41e2b4['text'](_0x42ffd8(0x10e),0xf,0x1c);let _0x21bd3c=0x34;_0x41e2b4[_0x42ffd8(0xca)]('helvetica',_0x42ffd8(0xda)),_0x41e2b4[_0x42ffd8(0xa9)](0xd),_0x41e2b4[_0x42ffd8(0xeb)](0x1b,0x2b,0x4f),_0x41e2b4['text'](_0x42ffd8(0x107),0xf,_0x21bd3c),_0x21bd3c+=0x4,_0x41e2b4[_0x42ffd8(0xbd)](0xcb,0xd5,0xe1),_0x41e2b4[_0x42ffd8(0xde)](0.4),_0x41e2b4[_0x42ffd8(0xf4)](0xf,_0x21bd3c,0xc3,_0x21bd3c),_0x21bd3c+=0xa,_0x41e2b4[_0x42ffd8(0xa9)](0xa);const _0x2284ba=[{'k':_0x42ffd8(0xb1),'v':_0x36686b},{'k':_0x42ffd8(0xf2),'v':_0x53bbc5},{'k':'Anzianità\x20di\x20Servizio:','v':_0x4817a2},{'k':_0x42ffd8(0xe1),'v':_0x1951e6}];document[_0x42ffd8(0xad)](_0x42ffd8(0xaf))[_0x42ffd8(0x9c)][_0x42ffd8(0xdc)]===_0x42ffd8(0x88)&&_0x2284ba['push']({'k':_0x42ffd8(0xf5),'v':document[_0x42ffd8(0xad)]('eta')[_0x42ffd8(0xae)]+_0x42ffd8(0xd3)});_0x2284ba['forEach'](_0x18f635=>{const _0x255769=_0x42ffd8;_0x41e2b4[_0x255769(0xca)](_0x255769(0x103),_0x255769(0xda)),_0x41e2b4[_0x255769(0xeb)](0x1b,0x2b,0x4f),_0x41e2b4[_0x255769(0xf1)](_0x18f635['k'],0xf,_0x21bd3c),_0x41e2b4['setFont']('helvetica','normal'),_0x41e2b4[_0x255769(0xeb)](0x28,0x28,0x28);const _0x5e3fa4=_0x41e2b4['splitTextToSize'](_0x18f635['v'],0x78);_0x41e2b4['text'](_0x5e3fa4,0x48,_0x21bd3c),_0x21bd3c+=_0x5e3fa4[_0x255769(0x91)]>0x1?_0x5e3fa4[_0x255769(0x91)]*0x5:0x7;}),_0x21bd3c+=0x8,_0x41e2b4[_0x42ffd8(0xca)](_0x42ffd8(0x103),'bold'),_0x41e2b4[_0x42ffd8(0xa9)](0xd),_0x41e2b4['setTextColor'](0x1b,0x2b,0x4f),_0x41e2b4['text'](_0x42ffd8(0x9b),0xf,_0x21bd3c),_0x21bd3c+=0x4,_0x41e2b4[_0x42ffd8(0xf4)](0xf,_0x21bd3c,0xc3,_0x21bd3c),_0x21bd3c+=0xa;const _0x3ecacf=_0x59387[_0x42ffd8(0xd4)]('p');_0x3ecacf[_0x42ffd8(0x97)](_0x29bb80=>{const _0x2292e3=_0x42ffd8,_0x33da0f=_0x29bb80[_0x2292e3(0xd1)]||_0x29bb80['textContent'];if(_0x33da0f[_0x2292e3(0xfb)](_0x2292e3(0xcf))||_0x33da0f[_0x2292e3(0xfb)]('Motivo:')||_0x33da0f['includes']('Anzianità:')||_0x33da0f[_0x2292e3(0xfb)](_0x2292e3(0xd0)))return;if(_0x29bb80[_0x2292e3(0xc9)](_0x2292e3(0xf7))){_0x41e2b4[_0x2292e3(0xca)]('helvetica',_0x2292e3(0xda)),_0x41e2b4[_0x2292e3(0xa9)](0xa),_0x41e2b4[_0x2292e3(0xeb)](0x46,0x50,0x5f),_0x41e2b4['text'](_0x29bb80[_0x2292e3(0xc9)](_0x2292e3(0xf7))['innerText'],0xf,_0x21bd3c),_0x21bd3c+=5.5;return;}_0x41e2b4[_0x2292e3(0xca)](_0x2292e3(0x103),'bold'),_0x41e2b4[_0x2292e3(0xa9)](0xc);if(_0x33da0f[_0x2292e3(0xfb)]('DA\x20EROGARE')||_0x33da0f[_0x2292e3(0xfb)]('€')&&!_0x33da0f[_0x2292e3(0xfb)](_0x2292e3(0xb8))&&!_0x33da0f[_0x2292e3(0xfb)](_0x2292e3(0xfc)))_0x41e2b4['setTextColor'](0x2e,0x91,0x69);else _0x33da0f[_0x2292e3(0xfb)]('DA\x20TRATTENERE')||_0x33da0f[_0x2292e3(0xfb)]('€')&&_0x33da0f['includes'](_0x2292e3(0xb8))?_0x41e2b4[_0x2292e3(0xeb)](0x72,0x1c,0x24):_0x41e2b4[_0x2292e3(0xeb)](0x1b,0x2b,0x4f);const _0x247360=_0x41e2b4[_0x2292e3(0xea)](_0x33da0f,0xaf);_0x41e2b4[_0x2292e3(0xf1)](_0x247360,0xf,_0x21bd3c),_0x21bd3c+=_0x247360['length']*0x5+0x6;}),_0x41e2b4['setFont']('helvetica',_0x42ffd8(0xf6)),_0x41e2b4[_0x42ffd8(0xa9)](0x8),_0x41e2b4[_0x42ffd8(0xeb)](0x8c,0x96,0xa5),_0x41e2b4['line'](0xf,0x116,0xc3,0x116);const _0x4a1001=new Date()[_0x42ffd8(0xef)]('it-IT');_0x41e2b4[_0x42ffd8(0xf1)](_0x42ffd8(0xdd)+_0x4a1001,0xf,0x11c),_0x41e2b4[_0x42ffd8(0xf1)](_0x42ffd8(0xb3),0xaf,0x11c),_0x41e2b4[_0x42ffd8(0xed)]('Report-IndenniTool.pdf');}function _0x1223(){const _0x189b54=['Dimissioni\x20(Art.\x2086\x20lett.\x20e)','IndenniTool','Retribuzione\x20Annua\x20Lorda\x20(RAL):','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22border-bottom:\x201px\x20solid\x20#ddd;\x20padding-bottom:\x2010px;\x20margin-bottom:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22margin-bottom:\x205px;\x22><strong>1.\x20Indennità\x20sostitutiva\x20preavviso\x20(equiparata\x20a\x20Giustificato\x20Motivo):</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:\x201.1rem;\x20color:\x20#1B2B4F;\x20font-weight:\x20bold;\x22>','impresa_dir','102976MVMfhX','art86a','Superamento\x20comporto\x20/\x20Invalidità\x20(Art.\x2086\x20lett.\x20a)','createElement','inferiore','selectedIndex','splitTextToSize','setTextColor','132qSmvIV','save','rect','toLocaleDateString','dimissioni','text','Motivo\x20Risoluzione:','art86c','line','Età\x20Anagrafica\x20Dirigente:','normal','strong','EUR','670kwcpVl','<p><small><strong>Età\x20dirigente:</strong>\x20','includes','TRATTENERE','€\x200,00','Nessuna\x20trattenuta\x20a\x20carico\x20dipendente','textContent','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:\x20#e6f4ea;\x20padding:\x2010px;\x20border-radius:\x208px;\x20margin-bottom:10px;\x20border:\x201px\x20solid\x20#c3e6cb;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22margin-bottom:\x205px;\x22><strong>Importo\x20Eventualmente\x20DA\x20EROGARE:</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:\x201.1rem;\x20color:\x20#2E9169;\x20font-weight:\x20bold;\x22>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22margin-bottom:\x205px;\x22><strong>Mesi/Mensilità\x20teorici:</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:\x201.1rem;\x20color:\x20#1B2B4F;\x20font-weight:\x20bold;\x22>','</small></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p><small><strong>Anzianità:</strong>\x20','helvetica','\x20anni</small></p>','input-screen','dirigenti','1.\x20RIEPILOGO\x20DATI\x20CONTRATTUALI','options','</small></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p><small><strong>Motivo:</strong>\x20','massima','addEventListener','6OPRPsw','toFixed','REPORT\x20UFFICIALE\x20DI\x20CALCOLO\x20PREAVVISO\x20E\x20INDENNITÀ','motivo','Licenziamento\x20riconosciuto\x20ingiustificato\x20dal\x20Collegio\x20(Art.\x2028\x20c.\x2015)','block','893505HMvhKv','assente','\x20mesi','unificata','art86b','164025aVWThE','innerHTML','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<hr\x20style=\x22margin:\x2015px\x200;\x20border:\x200;\x20border-top:\x201px\x20solid\x20#ccc;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p><small><strong>Categoria:</strong>\x20','length','Dimissioni\x20del\x20dirigente\x20(Art.\x2026\x20c.\x202)','\x0a\x20\x20\x20\x20','2627821qmLxfz','ral','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22border-bottom:\x201px\x20solid\x20#ddd;\x20padding-bottom:\x2010px;\x20margin-bottom:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22margin-bottom:\x205px;\x22><strong>Preavviso\x20dovuto\x20dal\x20lavoratore:</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:\x201.1rem;\x20color:\x20#1B2B4F;\x20font-weight:\x20bold;\x22>1\x20mese\x20(Art.\x2088\x20comma\x201)</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><small>In\x20caso\x20di\x20mancato\x20preavviso\x20lavorato,\x20l\x27azienda\x20può\x20trattenere\x20il\x20relativo\x20importo\x20dalle\x20competenze\x20di\x20fine\x20rapporto.</small></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','forEach','setFillColor','\x0a\x20\x20\x20\x20\x20\x20\x20\x20','Morte\x20(Art.\x2086\x20lett.\x20g)','2.\x20RISULTATI\x20ECONOMICI\x20E\x20SPETTANZE','style','art86f','\x20mensilità/mesi','\x20mesi</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22color:\x20#2E9169;\x20font-size:\x200.95rem;\x22>Erogazione\x20Preavviso:\x20','\x20a\x20','currency','replace','result-screen','jspdf','appendChild','Morte\x20del\x20dirigente\x20(Art.\x2026\x20c.\x205)','change','min','setFontSize','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22border-bottom:\x201px\x20solid\x20#ddd;\x20padding-bottom:\x2010px;\x20margin-bottom:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22margin-bottom:\x205px;\x22><strong>1.\x20Preavviso\x20Contrattuale\x20(Spettanza\x20certa):</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:\x201.1rem;\x20color:\x20#1B2B4F;\x20font-weight:\x20bold;\x22>','Requisiti\x20pensionistici\x20senza\x20prosecuzione\x20(Art.\x2086\x20lett.\x20b)','getElementById','value','group-eta','(Inserire\x20la\x20RAL\x20per\x20il\x20calcolo\x20economico)','Categoria\x20Contrattuale:','N/A','Pagina\x201\x20di\x201','some','3\x20mensilità','max','format','trattenuta','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h2>Esito\x20Calcolo</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:\x20white;\x20padding:\x2010px;\x20border-radius:\x208px;\x20margin-bottom:10px;\x20border:\x201px\x20solid\x20#ddd;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','ingiustificato_dir','anzianita','quadri','setDrawColor','categoria','Non\x20indicata','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22margin-bottom:\x205px;\x22><strong>2.\x20Indennità\x20Supplementare\x20(Esito\x20Collegio\x20Arbitrale):</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:\x201.1rem;\x20color:\x20#1B2B4F;\x20font-weight:\x20bold;\x22>Da\x20','\x20mensilità</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22color:\x20#2E9169;\x20font-size:\x200.95rem;\x22>Erogazione\x20Indennità:\x20','morte_dir','1uxzjUx','none','result-content','2293421BmrfSD','Giustificato\x20motivo\x20(Art.\x2086\x20lett.\x20c)','art86d','querySelector','setFont','10kvVJoh','previdenza','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><small>Da\x20corrispondersi\x20in\x20aggiunta\x20al\x20preavviso\x20contrattuale.</small></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','564956EECmas','Categoria:','RAL\x20Indicata:','innerText','terza','\x20anni','querySelectorAll','(Inserire\x20RAL)','9119zGfwgN','art86g','Risoluzione\x20ad\x20iniziativa\x20dell\x27impresa\x20non\x20per\x20giusta\x20causa\x20(Art.\x2026\x20c.\x201)','Nessuna\x20erogazione\x20a\x20favore\x20dipendente','bold','232ckaDqV','display','Documento\x20generato\x20da\x20IndenniTool\x20in\x20data\x20','setLineWidth'];_0x1223=function(){return _0x189b54;};return _0x1223();}
+/*
+ * IndenniTool - Calcolo preavviso e indennità
+ * © 2026 M. Monferrini. Tutti i diritti riservati.
+ *
+ * Fonti:
+ *  - CCNL 23 novembre 2023 per i quadri direttivi e per il personale delle aree
+ *    professionali (testo coordinato 14 luglio 2025): artt. 86, 87, 88 e Allegato 6.
+ *  - CCNL dirigenti 13 luglio 2015, aggiornato con l'accordo di rinnovo 15 luglio 2025:
+ *    artt. 26 e 28.
+ *
+ * Tutti i valori sono espressi in mensilità (mesi). La mensilità è stimata come RAL / 12.
+ */
+
+'use strict';
+
+// ---------------------------------------------------------------------------
+// Motivi di risoluzione
+// ---------------------------------------------------------------------------
+
+const motiviAree = [
+    { value: 'dimissioni', text: 'Dimissioni (Art. 86 lett. e)' },
+    { value: 'art86a', text: 'Superamento comporto / Invalidità (Art. 86 lett. a)' },
+    { value: 'art86b', text: 'Requisiti pensionistici senza prosecuzione (Art. 86 lett. b)' },
+    { value: 'art86c', text: 'Giustificato motivo (Art. 86 lett. c)' },
+    { value: 'art86d', text: 'Licenziamento per giusta causa (Art. 86 lett. d)' },
+    { value: 'art86f', text: 'Dimissioni per giusta causa (Art. 86 lett. f)' },
+    { value: 'art86g', text: 'Morte (Art. 86 lett. g)' }
+];
+
+const motiviDirigenti = [
+    { value: 'dimissioni_dir', text: 'Dimissioni del dirigente (Art. 26 c. 2)' },
+    { value: 'impresa_dir', text: "Risoluzione ad iniziativa dell'impresa non per giusta causa (Art. 26 c. 1)" },
+    { value: 'ingiustificato_dir', text: 'Licenziamento riconosciuto ingiustificato dal Collegio (Art. 28)' },
+    { value: 'morte_dir', text: 'Morte del dirigente (Art. 26 c. 5)' }
+];
+
+const opzioniPrevidenzaAree = [
+    { value: 'assente', text: 'Assente' },
+    { value: 'massima', text: 'Presente (Misura Massima)' },
+    { value: 'inferiore', text: 'Presente (Misura Inferiore alla Massima)' }
+];
+
+// Per i dirigenti l'art. 26 distingue solo tra diritto o meno, "con effetto immediato",
+// al trattamento di previdenza aziendale migliorativo.
+const opzioniPrevidenzaDirigenti = [
+    { value: 'assente', text: 'Assente (o non con effetto immediato)' },
+    { value: 'massima', text: 'Presente con effetto immediato' }
+];
+
+// Motivi per cui conta la norma di raccordo dell'Area Unificata (tabelle dell'Allegato 6)
+const MOTIVI_ALLEGATO_6 = ['art86a', 'art86b', 'art86c', 'art86f', 'art86g'];
+
+// ---------------------------------------------------------------------------
+// Tabelle Allegato 6 (CCNL 23/11/2023) — categorie: 'quadri', 'terza', 'unificata'
+// ---------------------------------------------------------------------------
+
+// Fasce "fino a 5 / da 5 a 10 / oltre 10 anni"
+function fascia3(anz, v5, v10, oltre) {
+    if (anz <= 5) return v5;
+    if (anz <= 10) return v10;
+    return oltre;
+}
+
+// Fasce "fino a 5 / da 5 a 10 / da 10 a 15 / oltre 15 anni"
+function fascia4(anz, v5, v10, v15, oltre) {
+    if (anz <= 5) return v5;
+    if (anz <= 10) return v10;
+    if (anz <= 15) return v15;
+    return oltre;
+}
+
+// Quadri: 5 mensilità fino a 6 anni, + 1/2 mensilità per ogni anno successivo, max altre 5
+function scalaQuadriLettA(anz) {
+    return Math.min(5 + Math.max(0, anz - 6) * 0.5, 10);
+}
+
+// Comma 1 — lett. a) superamento comporto / invalidità
+function preavvisoLettA(cat, anz, previdenza) {
+    if (previdenza === 'massima') {
+        return { quadri: 4, terza: 2, unificata: 1.5 }[cat];
+    }
+    let base;
+    if (cat === 'quadri') base = scalaQuadriLettA(anz);
+    else if (cat === 'terza') base = Math.min(Math.max(anz * 0.5, 2), 8);
+    else base = Math.min(Math.max(anz / 3, 1.5), 6);
+    // Previdenza in misura inferiore alla massima: trattamento sub c) ridotto del 25%
+    return previdenza === 'inferiore' ? base * 0.75 : base;
+}
+
+// Comma 2 — lett. b) requisiti pensionistici
+function preavvisoLettB(cat, anz, previdenza) {
+    if (previdenza === 'massima' || previdenza === 'inferiore') {
+        return { quadri: 4, terza: 2, unificata: 1.5 }[cat];
+    }
+    if (cat === 'quadri') return fascia3(anz, 4, 5, 6);
+    if (cat === 'terza') return fascia3(anz, 2, 3, 4);
+    return fascia3(anz, 1, 2, 3);
+}
+
+// Comma 3 — lett. c) giustificato motivo
+function preavvisoLettC(cat, anz) {
+    if (cat === 'quadri') return fascia4(anz, 5, 6, 7, 8);
+    if (cat === 'terza') return fascia4(anz, 3, 4, 5, 6);
+    return fascia4(anz, 2, 2.25, 3, 4);
+}
+
+// Comma 4 — lett. g) morte
+function preavvisoLettG(cat, anz, previdenza) {
+    if (previdenza === 'massima' || previdenza === 'inferiore') {
+        return { quadri: 5, terza: 3, unificata: 2.5 }[cat];
+    }
+    if (cat === 'quadri') return scalaQuadriLettA(anz);
+    if (cat === 'terza') return fascia3(anz, 2, 3, 4);
+    return fascia3(anz, 1, 2, 3);
+}
+
+// Art. 88 c. 4 — ulteriore trattamento per dimissioni per giusta causa
+function ulterioreLettF(anz) {
+    return anz <= 10 ? 4 : 6;
+}
+
+// ---------------------------------------------------------------------------
+// Dirigenti (CCNL 13/07/2015, agg. 15/07/2025)
+// ---------------------------------------------------------------------------
+
+// Art. 26 c. 1: 5 mesi fino a 2 anni, + 1/2 mese per ogni anno successivo, max altri 7 (tot. 12)
+function preavvisoDirigente(anz, previdenza) {
+    if (previdenza === 'massima') return 6;
+    return Math.min(5 + Math.max(0, anz - 2) * 0.5, 12);
+}
+
+// Art. 28: aumento automatico dell'indennità supplementare in base all'età
+// (solo con anzianità superiore a 10 anni)
+function aumentoEtaDirigente(anz, eta) {
+    if (anz <= 10) return 0;
+    const tabella = { 46: 2, 56: 2, 47: 3, 55: 3, 48: 4, 54: 4, 49: 5, 53: 5, 50: 6, 52: 6, 51: 7 };
+    return tabella[eta] || 0;
+}
+
+// ---------------------------------------------------------------------------
+// Utilità
+// ---------------------------------------------------------------------------
+
+function el(id) {
+    return document.getElementById(id);
+}
+
+function testoSelezionato(selectId) {
+    const s = el(selectId);
+    return s.options[s.selectedIndex] ? s.options[s.selectedIndex].text : '';
+}
+
+function popolaSelect(select, opzioni) {
+    const precedente = select.value;
+    select.innerHTML = '';
+    opzioni.forEach(o => {
+        const option = document.createElement('option');
+        option.value = o.value;
+        option.textContent = o.text;
+        select.appendChild(option);
+    });
+    if (opzioni.some(o => o.value === precedente)) select.value = precedente;
+}
+
+function formatValuta(valore) {
+    if (!valore || isNaN(valore)) return '€ 0,00';
+    return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(valore);
+}
+
+// Formatta un numero di mensilità con la virgola decimale e, se frazionario,
+// l'equivalente approssimato in mesi e giorni (mese convenzionale di 30 giorni).
+function formatMesi(n, unita) {
+    const testo = n.toLocaleString('it-IT', { maximumFractionDigits: 2 }) + ' ' + unita;
+    const interi = Math.floor(n + 1e-9);
+    const giorni = Math.round((n - interi) * 30);
+    if (giorni === 0) return testo;
+    const parteMesi = interi === 0 ? '' : interi + (interi === 1 ? ' mese e ' : ' mesi e ');
+    return testo + ' (circa ' + parteMesi + giorni + (giorni === 1 ? ' giorno' : ' giorni') + ')';
+}
+
+/*
+ * Interpreta la RAL inserita in formato italiano o internazionale:
+ *  "35.000,50" "35000,50" "35000.50" "35.000" "35,000.50" "€ 35 000" → numero
+ */
+function parseImporto(testo) {
+    let s = String(testo || '').replace(/[€\s']/g, '');
+    if (!s) return 0;
+    const ultimaVirgola = s.lastIndexOf(',');
+    const ultimoPunto = s.lastIndexOf('.');
+    if (ultimaVirgola !== -1 && ultimoPunto !== -1) {
+        // Entrambi presenti: l'ultimo separatore è quello decimale
+        if (ultimaVirgola > ultimoPunto) s = s.replace(/\./g, '').replace(',', '.');
+        else s = s.replace(/,/g, '');
+    } else if (ultimaVirgola !== -1) {
+        // Solo virgole: "35,000" con gruppi da 3 è separatore di migliaia, altrimenti decimale
+        s = /^\d{1,3}(,\d{3})+$/.test(s) ? s.replace(/,/g, '') : s.replace(',', '.');
+    } else if (ultimoPunto !== -1) {
+        // Solo punti: "35.000" o "1.250.000" sono migliaia, "35000.50" è decimale
+        s = /^\d{1,3}(\.\d{3})+$/.test(s) ? s.replace(/\./g, '') : s;
+    }
+    const n = parseFloat(s);
+    return isNaN(n) || n < 0 ? 0 : n;
+}
+
+function visibile(id) {
+    return el(id).style.display !== 'none';
+}
+
+function leggiNumeroNonNegativo(id) {
+    const n = parseFloat(String(el(id).value).replace(',', '.'));
+    return isNaN(n) || n < 0 ? 0 : n;
+}
+
+// ---------------------------------------------------------------------------
+// Gestione del modulo
+// ---------------------------------------------------------------------------
+
+document.addEventListener('DOMContentLoaded', function () {
+    el('categoria').addEventListener('change', onCategoriaChange);
+    el('motivo').addEventListener('change', onMotivoChange);
+    onCategoriaChange();
+});
+
+function onCategoriaChange() {
+    const dirigente = el('categoria').value === 'dirigenti';
+    popolaSelect(el('motivo'), dirigente ? motiviDirigenti : motiviAree);
+    // Le opzioni vengono ricreate (non nascoste via CSS) perché Safari su iOS
+    // ignora display:none sugli elementi <option>.
+    popolaSelect(el('previdenza'), dirigente ? opzioniPrevidenzaDirigenti : opzioniPrevidenzaAree);
+    onMotivoChange();
+}
+
+function onMotivoChange() {
+    const categoria = el('categoria').value;
+    const motivo = el('motivo').value;
+    el('group-eta').style.display = categoria === 'dirigenti' && motivo === 'ingiustificato_dir' ? 'block' : 'none';
+    el('group-ex2area').style.display = categoria === 'unificata' && MOTIVI_ALLEGATO_6.includes(motivo) ? 'flex' : 'none';
+    el('group-pensione').style.display = categoria !== 'dirigenti' && motivo === 'art86f' ? 'flex' : 'none';
+}
+
+// ---------------------------------------------------------------------------
+// Blocchi HTML del risultato
+// ---------------------------------------------------------------------------
+
+const STILE_SEPARATORE = 'border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 10px;';
+const STILE_VALORE = 'font-size: 1.1rem; color: #1B2B4F; font-weight: bold;';
+const STILE_TOTALE = 'font-size: 1.1rem; color: #2E9169; font-weight: bold;';
+
+function blocco(titolo, valore, opzioni) {
+    const o = opzioni || {};
+    return '<div style="' + (o.ultimo ? '' : STILE_SEPARATORE) + '">' +
+        '<p style="margin-bottom: 5px;"><strong>' + titolo + '</strong></p>' +
+        '<p style="' + (o.totale ? STILE_TOTALE : STILE_VALORE) + '">' + valore + '</p>' +
+        (o.extra || '') +
+        '</div>';
+}
+
+function nota(testo) {
+    return '<p><small>' + testo + '</small></p>';
+}
+
+function riepilogo(etichetta, valore) {
+    return '<p class="riepilogo"><small><strong>' + etichetta + ':</strong> ' + valore + '</small></p>';
+}
+
+// ---------------------------------------------------------------------------
+// Calcolo
+// ---------------------------------------------------------------------------
+
+function calcola() {
+    const categoria = el('categoria').value;
+    const motivo = el('motivo').value;
+    const anzianita = leggiNumeroNonNegativo('anzianita');
+    const eta = Math.floor(leggiNumeroNonNegativo('eta'));
+    const previdenza = el('previdenza').value;
+    const ral = parseImporto(el('ral').value);
+    const mensile = ral / 12;
+    const ex2Area = visibile('group-ex2area') && el('ex2area').checked;
+    const requisitiPensione = visibile('group-pensione') && el('requisiti-pensione').checked;
+
+    // Norma di raccordo (art. 100 c. 5): per chi era inquadrato al 31/12/2019 nel 3° livello
+    // retributivo della 2ª area continua ad applicarsi l'Allegato 6 del CCNL 31/03/2015,
+    // che li accomunava alla 3ª area professionale.
+    const catTabelle = categoria === 'unificata' && ex2Area ? 'terza' : categoria;
+
+    let mesi = 0;              // mensilità teoriche
+    let dettaglio = '';        // HTML del dettaglio
+    let daErogare = 'N/A';
+    let daTrattenere = 'N/A';
+    let mostraImporti = true;  // riquadri "da erogare / da trattenere"
+    const note = [];
+
+    if (ex2Area) {
+        note.push("Applicate le misure dell'Allegato 6 del CCNL 31/03/2015 per la 2ª area professionale, 3° livello retributivo (norma di raccordo, art. 100 c. 5).");
+    }
+
+    if (categoria !== 'dirigenti') {
+        switch (motivo) {
+            case 'dimissioni':
+                mesi = 1;
+                dettaglio = blocco('Preavviso dovuto dal lavoratore:', '1 mese (Art. 88 comma 1)') +
+                    nota("In caso di mancato preavviso lavorato, l'azienda può trattenere il relativo importo dalle competenze di fine rapporto (art. 2118 c.c.).");
+                if (ral > 0) {
+                    daTrattenere = formatValuta(mesi * mensile);
+                    daErogare = 'Nessuna erogazione a favore dipendente';
+                }
+                break;
+
+            case 'art86d':
+                dettaglio = '<p><strong>Mesi/Mensilità teorici:</strong> Nessun preavviso spettante. Risoluzione immediata (ex art. 2119 c.c.).</p>';
+                daErogare = '€ 0,00';
+                daTrattenere = '€ 0,00';
+                break;
+
+            case 'art86f':
+                if (requisitiPensione) {
+                    // Art. 88 c. 5: spetta il trattamento previsto per la lett. b)
+                    mesi = preavvisoLettB(catTabelle, anzianita, previdenza);
+                    dettaglio = blocco('Indennità sostitutiva del preavviso (Art. 88 c. 5, misure lett. b):', formatMesi(mesi, 'mensilità'), { ultimo: true }) +
+                        nota("Il lavoratore in possesso dei requisiti pensionistici riceve il trattamento previsto per la risoluzione ai sensi della lett. b), in luogo di quello dell'art. 88 c. 4.");
+                } else {
+                    const sostitutiva = preavvisoLettC(catTabelle, anzianita);
+                    const ulteriore = ulterioreLettF(anzianita);
+                    mesi = sostitutiva + ulteriore;
+                    dettaglio =
+                        blocco('1. Indennità sostitutiva preavviso (equiparata a Giustificato Motivo):', formatMesi(sostitutiva, 'mensilità')) +
+                        blocco('2. Ulteriore Indennità (Art. 88 comma 4):', formatMesi(ulteriore, 'mensilità')) +
+                        blocco('Totale Mesi/Mensilità spettanti:', formatMesi(mesi, 'mensilità'), { totale: true, ultimo: true });
+                }
+                if (ral > 0) {
+                    daErogare = formatValuta(mesi * mensile);
+                    daTrattenere = 'Nessuna trattenuta a carico dipendente';
+                }
+                break;
+
+            case 'art86a':
+                mesi = preavvisoLettA(catTabelle, anzianita, previdenza);
+                break;
+            case 'art86b':
+                mesi = preavvisoLettB(catTabelle, anzianita, previdenza);
+                break;
+            case 'art86c':
+                mesi = preavvisoLettC(catTabelle, anzianita);
+                break;
+            case 'art86g':
+                mesi = preavvisoLettG(catTabelle, anzianita, previdenza);
+                break;
+        }
+    } else {
+        switch (motivo) {
+            case 'dimissioni_dir':
+                mesi = 3;
+                dettaglio = blocco('Preavviso dovuto dal dirigente:', '3 mesi (Art. 26 comma 2)') +
+                    nota("In caso di mancato preavviso, l'impresa ha diritto a un'indennità pari alla retribuzione del periodo non lavorato (Art. 26 comma 3).");
+                if (ral > 0) {
+                    daTrattenere = formatValuta(mesi * mensile);
+                    daErogare = 'Nessuna erogazione a favore dipendente';
+                }
+                break;
+
+            case 'impresa_dir':
+                mesi = preavvisoDirigente(anzianita, previdenza);
+                break;
+
+            case 'morte_dir':
+                // Art. 26 c. 6-7: misure della lett. a), oppure 7 mensilità con previdenza
+                mesi = previdenza === 'massima' ? 7 : preavvisoDirigente(anzianita, 'assente');
+                break;
+
+            case 'ingiustificato_dir': {
+                mostraImporti = false;
+                const preavviso = preavvisoDirigente(anzianita, previdenza);
+                const aumento = aumentoEtaDirigente(anzianita, eta);
+                const min = 7 + aumento;
+                const max = 22 + aumento;
+                dettaglio =
+                    blocco('1. Preavviso Contrattuale (Spettanza certa):', formatMesi(preavviso, 'mesi'), {
+                        extra: '<p style="color: #2E9169; font-size: 0.95rem;">Erogazione Preavviso: ' +
+                            (ral > 0 ? formatValuta(preavviso * mensile) : '(Inserire RAL)') + '</p>'
+                    }) +
+                    blocco('2. Indennità Supplementare (Esito Collegio Arbitrale):', 'Da ' + min + ' a ' + max + ' mensilità', {
+                        ultimo: true,
+                        extra: '<p style="color: #2E9169; font-size: 0.95rem;">Erogazione Indennità: ' +
+                            (ral > 0 ? 'Tra ' + formatValuta(min * mensile) + ' e ' + formatValuta(max * mensile) : '(Inserire RAL)') + '</p>' +
+                            nota('Da corrispondersi in aggiunta al preavviso contrattuale.' +
+                                (aumento > 0 ? ' Include l\'aumento automatico di ' + aumento + ' mensilità per età (Art. 28).' : ''))
+                    });
+                break;
+            }
+        }
+    }
+
+    // Casi standard: indennità di mancato preavviso a favore del lavoratore
+    if (!dettaglio) {
+        const unita = categoria === 'dirigenti' ? 'mesi' : 'mensilità/mesi';
+        dettaglio = '<p style="margin-bottom: 5px;"><strong>Mesi/Mensilità teorici:</strong></p>' +
+            '<p style="' + STILE_VALORE + '">' + formatMesi(mesi, unita) + '</p>';
+        if (ral > 0) {
+            daErogare = formatValuta(mesi * mensile);
+            daTrattenere = 'Nessuna trattenuta a carico dipendente';
+        }
+    }
+
+    note.forEach(n => { dettaglio += nota(n); });
+
+    let html = '<h2>Esito Calcolo</h2>' +
+        '<div style="background: white; padding: 10px; border-radius: 8px; margin-bottom:10px; border: 1px solid #ddd;">' +
+        dettaglio + '</div>';
+
+    if (mostraImporti) {
+        const testoErogare = ral > 0 ? daErogare : '(Inserire la RAL per il calcolo economico)';
+        const testoTrattenere = ral > 0 ? daTrattenere : '(Inserire la RAL per il calcolo economico)';
+        html +=
+            '<div style="background: #e6f4ea; padding: 10px; border-radius: 8px; margin-bottom:10px; border: 1px solid #c3e6cb;">' +
+            '<p style="margin-bottom: 5px;"><strong>Importo Eventualmente DA EROGARE:</strong></p>' +
+            '<p style="font-size: 1.1rem; color: #2E9169; font-weight: bold;">' + testoErogare + '</p></div>' +
+            '<div style="background: #f8d7da; padding: 10px; border-radius: 8px; border: 1px solid #f5c6cb;">' +
+            '<p style="margin-bottom: 5px;"><strong>Importo Eventualmente DA TRATTENERE:</strong></p>' +
+            '<p style="font-size: 1.1rem; color: #721c24; font-weight: bold;">' + testoTrattenere + '</p></div>';
+    }
+
+    html += '<hr style="margin: 15px 0; border: 0; border-top: 1px solid #ccc;">';
+    datiRiepilogo().forEach(r => { html += riepilogo(r.k, r.v); });
+
+    el('input-screen').style.display = 'none';
+    el('result-screen').style.display = 'block';
+    el('result-content').innerHTML = html;
+    window.scrollTo(0, 0);
+}
+
+// Dati inseriti, usati sia nella schermata del risultato sia nel PDF
+function datiRiepilogo() {
+    const categoria = el('categoria').value;
+    const ral = parseImporto(el('ral').value);
+    const righe = [
+        { k: 'Categoria', v: testoSelezionato('categoria') },
+        { k: 'Motivo', v: testoSelezionato('motivo') },
+        { k: 'Anzianità di effettivo servizio', v: leggiNumeroNonNegativo('anzianita') + ' anni' },
+        { k: 'RAL indicata', v: ral > 0 ? formatValuta(ral) : 'Non indicata' },
+        { k: 'Previdenza aziendale migliorativa', v: testoSelezionato('previdenza') }
+    ];
+    if (visibile('group-eta')) {
+        righe.push({ k: 'Età dirigente', v: Math.floor(leggiNumeroNonNegativo('eta')) + ' anni' });
+    }
+    if (visibile('group-ex2area') && el('ex2area').checked) {
+        righe.push({ k: 'Norma di raccordo', v: 'Inquadrato al 31/12/2019 nella 2ª area, 3° livello retributivo' });
+    }
+    if (visibile('group-pensione') && el('requisiti-pensione').checked) {
+        righe.push({ k: 'Requisiti pensionistici', v: 'Sì (Art. 88 c. 5)' });
+    }
+    if (categoria === 'dirigenti') {
+        righe[2].k = 'Anzianità di servizio';
+    }
+    return righe;
+}
+
+function resetForm() {
+    el('input-screen').style.display = 'block';
+    el('result-screen').style.display = 'none';
+}
+
+// ---------------------------------------------------------------------------
+// Esportazione PDF
+// ---------------------------------------------------------------------------
+
+function esportaPDF() {
+    if (!window.jspdf || !window.jspdf.jsPDF) {
+        alert('Impossibile generare il PDF: libreria non disponibile. Ricarica la pagina e riprova.');
+        return;
+    }
+    const doc = new window.jspdf.jsPDF('p', 'mm', 'a4');
+    const MARGINE_BASSO = 265;
+    let y;
+
+    function intestazione() {
+        doc.setFillColor(27, 43, 79);
+        doc.rect(0, 0, 210, 38, 'F');
+        doc.setTextColor(255, 255, 255);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(22);
+        doc.text('IndenniTool', 15, 18);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(10);
+        doc.setTextColor(180, 195, 220);
+        doc.text('REPORT DI CALCOLO PREAVVISO E INDENNITÀ - VALORE INDICATIVO', 15, 28);
+        y = 52;
+    }
+
+    function spazio(altezza) {
+        if (y + altezza > MARGINE_BASSO) {
+            doc.addPage();
+            intestazione();
+        }
+    }
+
+    function titoloSezione(testo) {
+        spazio(16);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(13);
+        doc.setTextColor(27, 43, 79);
+        doc.text(testo, 15, y);
+        y += 4;
+        doc.setDrawColor(203, 213, 225);
+        doc.setLineWidth(0.4);
+        doc.line(15, y, 195, y);
+        y += 10;
+    }
+
+    intestazione();
+
+    // 1. Dati inseriti
+    titoloSezione('1. RIEPILOGO DATI CONTRATTUALI');
+    doc.setFontSize(10);
+    datiRiepilogo().forEach(r => {
+        doc.setFont('helvetica', 'bold');
+        const etichetta = doc.splitTextToSize(r.k + ':', 62);
+        doc.setFont('helvetica', 'normal');
+        const valore = doc.splitTextToSize(r.v, 112);
+        const altezza = Math.max(etichetta.length, valore.length) * 5 + 2;
+        spazio(altezza);
+        doc.setFont('helvetica', 'bold');
+        doc.setTextColor(27, 43, 79);
+        doc.text(etichetta, 15, y);
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor(40, 40, 40);
+        doc.text(valore, 82, y);
+        y += altezza;
+    });
+
+    // 2. Risultati
+    y += 8;
+    titoloSezione('2. RISULTATI ECONOMICI E SPETTANZE');
+    el('result-content').querySelectorAll('p').forEach(p => {
+        if (p.classList.contains('riepilogo')) return;
+        const testo = (p.innerText || p.textContent).trim();
+        if (!testo) return;
+        const strong = p.querySelector('strong');
+        if (strong && strong.textContent.trim() === testo) {
+            spazio(12);
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(10);
+            doc.setTextColor(70, 80, 95);
+            doc.text(doc.splitTextToSize(testo, 180), 15, y);
+            y += 5.5;
+            return;
+        }
+        const isNota = !!p.querySelector('small');
+        doc.setFont('helvetica', isNota ? 'normal' : 'bold');
+        doc.setFontSize(isNota ? 9 : 12);
+        if (isNota) doc.setTextColor(100, 116, 139);
+        else if (testo.includes('Nessuna trattenuta') || testo.includes('Nessuna erogazione')) doc.setTextColor(27, 43, 79);
+        else if (p.closest('div[style*="#f8d7da"]')) doc.setTextColor(114, 28, 36);
+        else if (testo.includes('€')) doc.setTextColor(46, 145, 105);
+        else doc.setTextColor(27, 43, 79);
+        const righe = doc.splitTextToSize(testo, 180);
+        spazio(righe.length * 5 + 6);
+        doc.text(righe, 15, y);
+        y += righe.length * 5 + 6;
+    });
+
+    // Piè di pagina su tutte le pagine
+    const data = new Date().toLocaleDateString('it-IT');
+    const pagine = doc.getNumberOfPages();
+    for (let i = 1; i <= pagine; i++) {
+        doc.setPage(i);
+        doc.setDrawColor(203, 213, 225);
+        doc.line(15, 272, 195, 272);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(7.5);
+        doc.setTextColor(140, 150, 165);
+        doc.text(doc.splitTextToSize('Risultato indicativo basato sul CCNL del credito: non costituisce parere legale, contabile o consulenza professionale vincolante.', 150), 15, 277);
+        doc.text('Documento generato da IndenniTool in data ' + data, 15, 286);
+        doc.text('Pagina ' + i + ' di ' + pagine, 175, 286);
+    }
+
+    doc.save('Report-IndenniTool.pdf');
+}
