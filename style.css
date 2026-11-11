@@ -226,6 +226,17 @@ button {
     color: var(--primary);
 }
 
+/* Testi giustificati, con sillabazione italiana per evitare spazi troppo larghi sugli schermi stretti */
+small,
+.checkbox-group label,
+.result-card p,
+.disclaimer-box,
+.testo-giustificato {
+    text-align: justify;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
 /* Ottimizzazione per schermi mobile: se lo spazio è poco si centra sul fondo in modo fluido */
 @media (max-width: 480px) {
     .copyright-box {

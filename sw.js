@@ -1,6 +1,6 @@
 // Incrementa questo numero a ogni pubblicazione (v7, v8, v9...): così le app già
 // installate scaricano il nuovo Service Worker e si ricaricano da sole.
-const CACHE_NAME = 'preavviso-cache-v7';
+const CACHE_NAME = 'preavviso-cache-v8';
 
 // ATTENZIONE: ogni file elencato qui deve esistere con esattamente questo nome.
 // Se anche uno solo manca, l'installazione del Service Worker fallisce e l'app non funziona offline.
