@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IndenniTool – Calcolo del preavviso e delle indennità nel CCNL del credito</title>
+<meta name="description" content="Applicazione web per calcolare mensilità di preavviso e indennità di fine rapporto secondo il CCNL del credito. Si installa sullo smartphone direttamente dal browser e funziona anche offline.">
+<meta name="theme-color" content="#1B2B4F">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="canonical" href="https://sevengem27.github.io/IndenniTool/presentazione.html">
+
+<!-- Anteprima del link quando la pagina viene condivisa (WhatsApp, e-mail, Teams, LinkedIn…) -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="IndenniTool">
+<meta property="og:title" content="IndenniTool – Preavviso e indennità di fine rapporto">
+<meta property="og:description" content="Applicazione web per calcolare mensilità di preavviso e indennità di fine rapporto secondo il CCNL del credito. Si installa sullo smartphone direttamente dal browser e funziona anche offline.">
+<meta property="og:url" content="https://sevengem27.github.io/IndenniTool/presentazione.html">
+<meta property="og:image" content="https://sevengem27.github.io/IndenniTool/icon.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta name="twitter:card" content="summary">
+
+<style>
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+img{max-width:100%}
+body{margin:0;background:#FFFFFF}
+a{color:#1B2B4F}a:hover{color:#237556}
+.pulsante-primario:hover{filter:brightness(0.92)}
+.pulsante-secondario:hover{background:#E4EAF2}
+.voce-menu{text-decoration:none}
+.voce-menu:hover{text-decoration:underline}
+p{text-align:justify;-webkit-hyphens:auto;hyphens:auto}
+@media (max-width: 760px){
+  .secondo-telefono{display:none !important}
+  .menu-voci{display:none !important}
+  .titolo-hero{font-size:38px !important}
+  .titolo-sezione{font-size:30px !important}
+  .sezione{padding-left:20px !important;padding-right:20px !important}
+  .scheda{padding:24px !important}
+}
+</style>
+</head>
+<body>
+<div style="width: 100%; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1C2434; background: #FFFFFF">
+
+<!-- Intestazione -->
+<header class="sezione" style="box-sizing: border-box; padding: 20px 48px; border-bottom: 1px solid #E2E8F0; background: #FFFFFF">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#inizio" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #1B2B4F">
+<img src="icon-192.png" alt="" style="width: 44px; height: 44px; border-radius: 50%">
+<span style="font-size: 20px; font-weight: 800; letter-spacing: -0.01em">IndenniTool</span>
+</a>
+<nav aria-label="Navigazione principale" style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px">
+<div class="menu-voci" style="display: flex; gap: 28px">
+<a class="voce-menu" href="#funzionalita" style="font-size: 15px; font-weight: 500; color: #3A475A">Funzionalità</a>
+<a class="voce-menu" href="#come-funziona" style="font-size: 15px; font-weight: 500; color: #3A475A">Come funziona</a>
+<a class="voce-menu" href="#installazione" style="font-size: 15px; font-weight: 500; color: #3A475A">Installazione</a>
+</div>
+<a class="pulsante-primario" href="https://sevengem27.github.io/IndenniTool/" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 10px; background: #237556; color: #FFFFFF; font-size: 15px; font-weight: 700; text-decoration: none">Apri l'app</a>
+</nav>
+</div>
+</header>
+
+<!-- Hero -->
+<section id="inizio" class="sezione" style="box-sizing: border-box; padding: 88px 48px 96px; background: #F2F5F9">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+<p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-align: left; color: #237556">CCNL del Credito · Strumento di calcolo</p>
+<h1 class="titolo-hero" style="margin: 0; font-size: 56px; line-height: 1.08; font-weight: 800; letter-spacing: -0.025em; color: #1B2B4F">Preavviso e indennità di fine rapporto, calcolati in pochi istanti.</h1>
+<p style="margin: 0; max-width: 580px; font-size: 19px; line-height: 1.6; color: #3A475A">IndenniTool è un'applicazione web progressiva che determina le mensilità di preavviso e le indennità spettanti nelle diverse ipotesi di risoluzione del rapporto di lavoro, secondo le disposizioni del contratto collettivo del settore del credito.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 14px">
+<a class="pulsante-primario" href="https://sevengem27.github.io/IndenniTool/" style="display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 12px; background: #237556; color: #FFFFFF; font-size: 16px; font-weight: 700; text-decoration: none">Apri IndenniTool
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+</a>
+<a class="pulsante-secondario" href="#installazione" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; border-radius: 12px; background: #FFFFFF; border: 1.5px solid #CBD5E1; color: #1B2B4F; font-size: 16px; font-weight: 700; text-decoration: none">Come installarla</a>
+</div>
+<ul style="margin: 8px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 12px 28px">
+<li style="display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; color: #3A475A">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#237556" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+Accesso libero, senza registrazione</li>
+<li style="display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; color: #3A475A">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#237556" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+Utilizzabile anche offline</li>
+<li style="display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; color: #3A475A">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#237556" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+Dati trattati solo sul dispositivo</li>
+</ul>
+</div>
+<div style="flex: 1 1 440px; min-width: 0; display: flex; justify-content: center; align-items: flex-start; gap: 28px">
+<div style="width: 250px; flex-shrink: 0; border: 10px solid #101B33; border-radius: 42px; overflow: hidden; background: #EEF2F7; box-shadow: 0 30px 60px -20px rgba(16, 27, 51, 0.45)">
+<img src="presentazione/app-modulo.webp" alt="Schermata di IndenniTool: modulo di inserimento con categoria, motivo di risoluzione, RAL, anzianità e previdenza" style="display: block; width: 100%; height: 520px; object-fit: cover; object-position: top">
+</div>
+<div class="secondo-telefono" style="width: 250px; flex-shrink: 0; margin-top: 64px; border: 10px solid #101B33; border-radius: 42px; overflow: hidden; background: #EEF2F7; box-shadow: 0 30px 60px -20px rgba(16, 27, 51, 0.45)">
+<img src="presentazione/app-risultato.webp" alt="Schermata di IndenniTool: esito del calcolo con mensilità spettanti e importo da erogare" style="display: block; width: 100%; height: 520px; object-fit: cover; object-position: top">
+</div>
+</div>
+</div>
+</section>
+
+<!-- Riferimenti contrattuali -->
+<section class="sezione" aria-label="Riferimenti contrattuali" style="box-sizing: border-box; padding: 40px 48px; background: #1B2B4F; color: #FFFFFF">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 24px 56px">
+<p style="margin: 0; flex: 0 0 auto; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-align: left; color: #C9D4E6">Riferimenti contrattuali</p>
+<div style="flex: 1 1 300px; min-width: 0; display: flex; gap: 16px; align-items: flex-start">
+<svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9FD8C0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M9 13h6"></path><path d="M9 17h6"></path></svg>
+<div>
+<p style="margin: 0 0 4px; font-size: 17px; font-weight: 700">CCNL 23 novembre 2023</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #D5DDEB">Quadri direttivi e personale delle aree professionali — artt. 86, 87, 88 e Allegato 6</p>
+</div>
+</div>
+<div style="flex: 1 1 300px; min-width: 0; display: flex; gap: 16px; align-items: flex-start">
+<svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9FD8C0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M9 13h6"></path><path d="M9 17h6"></path></svg>
+<div>
+<p style="margin: 0 0 4px; font-size: 17px; font-weight: 700">CCNL Dirigenti 2015</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #D5DDEB">Aggiornato con il rinnovo del 15 luglio 2025 — artt. 26 e 28</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Funzionalità -->
+<section id="funzionalita" class="sezione" style="box-sizing: border-box; padding: 104px 48px; background: #FFFFFF">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
+<div style="max-width: 760px; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-align: left; color: #237556">Funzionalità</p>
+<h2 class="titolo-sezione" style="margin: 0; font-size: 40px; line-height: 1.15; font-weight: 800; letter-spacing: -0.02em; color: #1B2B4F">Uno strumento completo per le verifiche di fine rapporto</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #3A475A">Ogni calcolo applica le tabelle contrattuali in funzione della categoria, dell'anzianità di servizio e del trattamento previdenziale del dipendente.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px">
+
+<div style="box-sizing: border-box; padding: 32px; border: 1px solid #E2E8F0; border-radius: 16px; background: #FFFFFF; display: flex; flex-direction: column; gap: 14px">
+<div style="width: 48px; height: 48px; border-radius: 12px; background: #E6F2EC; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#237556" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+</div>
+<h3 style="margin: 0; font-size: 19px; font-weight: 700; color: #1B2B4F">Tutte le categorie contrattuali</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4B5768">Area professionale unificata, 3ª Area professionale, Quadri direttivi e Dirigenti, ciascuna con le proprie misure di preavviso.</p>
+</div>
+
+<div style="box-sizing: border-box; padding: 32px; border: 1px solid #E2E8F0; border-radius: 16px; background: #FFFFFF; display: flex; flex-direction: column; gap: 14px">
+<div style="width: 48px; height: 48px; border-radius: 12px; background: #E6F2EC; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#237556" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"></path><rect x="9" y="3" width="6" height="4" rx="1"></rect><path d="M9 12h6"></path><path d="M9 16h4"></path></svg>
+</div>
+<h3 style="margin: 0; font-size: 19px; font-weight: 700; color: #1B2B4F">Ogni causa di risoluzione</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4B5768">Superamento del comporto, requisiti pensionistici, giustificato motivo, giusta causa, dimissioni, dimissioni per giusta causa e decesso (art. 86, lett. a–g).</p>
+</div>
+
+<div style="box-sizing: border-box; padding: 32px; border: 1px solid #E2E8F0; border-radius: 16px; background: #FFFFFF; display: flex; flex-direction: column; gap: 14px">
+<div style="width: 48px; height: 48px; border-radius: 12px; background: #E6F2EC; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#237556" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"></rect><path d="M8 6h8"></path><path d="M8 11h.01"></path><path d="M12 11h.01"></path><path d="M16 11h.01"></path><path d="M8 15h.01"></path><path d="M12 15h.01"></path><path d="M16 15h.01"></path><path d="M8 19h8"></path></svg>
+</div>
+<h3 style="margin: 0; font-size: 19px; font-weight: 700; color: #1B2B4F">Importi da erogare o trattenere</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4B5768">A partire dalla retribuzione annua lorda, l'app stima l'indennità sostitutiva spettante o la trattenuta per il preavviso non lavorato.</p>
+</div>
+
+<div style="box-sizing: border-box; padding: 32px; border: 1px solid #E2E8F0; border-radius: 16px; background: #FFFFFF; display: flex; flex-direction: column; gap: 14px">
+<div style="width: 48px; height: 48px; border-radius: 12px; background: #E6F2EC; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#237556" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"></path><path d="M5 7h14"></path><path d="M5 7l-3 7a4 4 0 0 0 6 0z"></path><path d="M19 7l-3 7a4 4 0 0 0 6 0z"></path><path d="M8 21h8"></path></svg>
+</div>
+<h3 style="margin: 0; font-size: 19px; font-weight: 700; color: #1B2B4F">Casi particolari</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4B5768">Previdenza aziendale migliorativa, norma di raccordo per l'ex 2ª area, art. 88 c. 5 e indennità supplementare dei dirigenti con maggiorazione per età.</p>
+</div>
+
+<div style="box-sizing: border-box; padding: 32px; border: 1px solid #E2E8F0; border-radius: 16px; background: #FFFFFF; display: flex; flex-direction: column; gap: 14px">
+<div style="width: 48px; height: 48px; border-radius: 12px; background: #E6F2EC; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#237556" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M12 11v6"></path><path d="M9 14l3 3 3-3"></path></svg>
+</div>
+<h3 style="margin: 0; font-size: 19px; font-weight: 700; color: #1B2B4F">Report in PDF</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4B5768">Un riepilogo ordinato dei dati inseriti e degli esiti del calcolo, pronto per essere archiviato o allegato alla pratica.</p>
+</div>
+
+<div style="box-sizing: border-box; padding: 32px; border: 1px solid #E2E8F0; border-radius: 16px; background: #FFFFFF; display: flex; flex-direction: column; gap: 14px">
+<div style="width: 48px; height: 48px; border-radius: 12px; background: #E6F2EC; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#237556" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><rect x="9" y="10" width="6" height="5" rx="1"></rect><path d="M10 10V8.5a2 2 0 0 1 4 0V10"></path></svg>
+</div>
+<h3 style="margin: 0; font-size: 19px; font-weight: 700; color: #1B2B4F">Riservatezza e uso offline</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4B5768">I calcoli sono eseguiti interamente sul dispositivo e nessun dato viene trasmesso. Una volta aperta, l'app funziona anche senza connessione.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- Come funziona -->
+<section id="come-funziona" class="sezione" style="box-sizing: border-box; padding: 104px 48px; background: #F2F5F9">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
+<div style="max-width: 760px; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-align: left; color: #237556">Come funziona</p>
+<h2 class="titolo-sezione" style="margin: 0; font-size: 40px; line-height: 1.15; font-weight: 800; letter-spacing: -0.02em; color: #1B2B4F">Tre passaggi, un esito chiaro</h2>
+</div>
+<ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px">
+<li style="display: flex; flex-direction: column; gap: 14px; padding-top: 24px; border-top: 3px solid #1B2B4F">
+<span style="font-size: 15px; font-weight: 800; letter-spacing: 0.06em; color: #237556">01</span>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700; color: #1B2B4F">Selezionare categoria e causa</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4B5768">Indicare la categoria contrattuale del dipendente e il motivo della cessazione del rapporto di lavoro.</p>
+</li>
+<li style="display: flex; flex-direction: column; gap: 14px; padding-top: 24px; border-top: 3px solid #1B2B4F">
+<span style="font-size: 15px; font-weight: 800; letter-spacing: 0.06em; color: #237556">02</span>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700; color: #1B2B4F">Inserire i dati del rapporto</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4B5768">Retribuzione annua lorda, anzianità di effettivo servizio e, ove previsto, trattamento di previdenza aziendale migliorativo.</p>
+</li>
+<li style="display: flex; flex-direction: column; gap: 14px; padding-top: 24px; border-top: 3px solid #1B2B4F">
+<span style="font-size: 15px; font-weight: 800; letter-spacing: 0.06em; color: #237556">03</span>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700; color: #1B2B4F">Consultare l'esito</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4B5768">Mensilità spettanti e importi stimati, con la possibilità di esportare il report in formato PDF.</p>
+</li>
+</ol>
+</div>
+</section>
+
+<!-- Installazione -->
+<section id="installazione" class="sezione" style="box-sizing: border-box; padding: 104px 48px; background: #FFFFFF">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
+<div style="max-width: 800px; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-align: left; color: #237556">Installazione</p>
+<h2 class="titolo-sezione" style="margin: 0; font-size: 40px; line-height: 1.15; font-weight: 800; letter-spacing: -0.02em; color: #1B2B4F">Installare IndenniTool sul proprio smartphone</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #3A475A">IndenniTool non richiede il download da App Store o Google Play: si installa direttamente dal browser e si apre a schermo intero, come un'applicazione nativa. Le nuove versioni vengono caricate automaticamente, senza necessità di reinstallarla.</p>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px">
+
+<div class="scheda" style="box-sizing: border-box; padding: 36px; border: 1px solid #E2E8F0; border-radius: 18px; background: #FFFFFF; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; align-items: center; gap: 14px">
+<div style="width: 48px; height: 48px; border-radius: 12px; background: #E8EDF5; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B2B4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"></rect><path d="M11 18h2"></path></svg>
+</div>
+<div>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700; color: #1B2B4F">iPhone e iPad</h3>
+<p style="margin: 2px 0 0; font-size: 15px; color: #4B5768; text-align: left">Con il browser Safari</p>
+</div>
+</div>
+<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 18px">
+<li style="display: flex; gap: 14px; align-items: flex-start">
+<span style="flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: #1B2B4F; color: #FFFFFF; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span>
+<p style="margin: 3px 0 0; font-size: 16px; line-height: 1.55; color: #2F3B4E">Aprire il collegamento all'app in <strong>Safari</strong>.</p>
+</li>
+<li style="display: flex; gap: 14px; align-items: flex-start">
+<span style="flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: #1B2B4F; color: #FFFFFF; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span>
+<p style="margin: 3px 0 0; font-size: 16px; line-height: 1.55; color: #2F3B4E">Toccare il pulsante <strong>Condividi</strong>, il quadrato con la freccia rivolta verso l'alto. Nelle versioni più recenti di iOS si trova nel menu con i tre puntini, in basso a destra.</p>
+</li>
+<li style="display: flex; gap: 14px; align-items: flex-start">
+<span style="flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: #1B2B4F; color: #FFFFFF; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span>
+<p style="margin: 3px 0 0; font-size: 16px; line-height: 1.55; color: #2F3B4E">Selezionare <strong>Aggiungi alla schermata Home</strong>. Se la voce non è visibile, scorrere l'elenco fino in fondo e aggiungerla da <strong>Modifica azioni</strong>.</p>
+</li>
+<li style="display: flex; gap: 14px; align-items: flex-start">
+<span style="flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: #1B2B4F; color: #FFFFFF; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center">4</span>
+<p style="margin: 3px 0 0; font-size: 16px; line-height: 1.55; color: #2F3B4E">Confermare con <strong>Aggiungi</strong>: l'icona di IndenniTool comparirà nella schermata Home.</p>
+</li>
+</ol>
+</div>
+
+<div class="scheda" style="box-sizing: border-box; padding: 36px; border: 1px solid #E2E8F0; border-radius: 18px; background: #FFFFFF; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; align-items: center; gap: 14px">
+<div style="width: 48px; height: 48px; border-radius: 12px; background: #E8EDF5; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B2B4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"></rect><path d="M6 5h12"></path><path d="M6 18h12"></path></svg>
+</div>
+<div>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700; color: #1B2B4F">Android</h3>
+<p style="margin: 2px 0 0; font-size: 15px; color: #4B5768; text-align: left">Con il browser Google Chrome</p>
+</div>
+</div>
+<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 18px">
+<li style="display: flex; gap: 14px; align-items: flex-start">
+<span style="flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: #1B2B4F; color: #FFFFFF; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span>
+<p style="margin: 3px 0 0; font-size: 16px; line-height: 1.55; color: #2F3B4E">Aprire il collegamento all'app in <strong>Google Chrome</strong>.</p>
+</li>
+<li style="display: flex; gap: 14px; align-items: flex-start">
+<span style="flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: #1B2B4F; color: #FFFFFF; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span>
+<p style="margin: 3px 0 0; font-size: 16px; line-height: 1.55; color: #2F3B4E">Toccare il menu con i <strong>tre puntini verticali</strong>, in alto a destra.</p>
+</li>
+<li style="display: flex; gap: 14px; align-items: flex-start">
+<span style="flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: #1B2B4F; color: #FFFFFF; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span>
+<p style="margin: 3px 0 0; font-size: 16px; line-height: 1.55; color: #2F3B4E">Selezionare <strong>Installa app</strong> oppure <strong>Aggiungi a schermata Home</strong>, a seconda della versione del browser.</p>
+</li>
+<li style="display: flex; gap: 14px; align-items: flex-start">
+<span style="flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: #1B2B4F; color: #FFFFFF; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center">4</span>
+<p style="margin: 3px 0 0; font-size: 16px; line-height: 1.55; color: #2F3B4E">Confermare l'installazione: IndenniTool sarà disponibile tra le applicazioni del dispositivo.</p>
+</li>
+</ol>
+</div>
+
+<div class="scheda" style="box-sizing: border-box; padding: 36px; border-radius: 18px; background: #1B2B4F; color: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; text-align: center">
+<div style="padding: 14px; border-radius: 14px; background: #FFFFFF">
+<img width="168" height="168" src="presentazione/qr-indennitool.svg" alt="Codice QR per aprire IndenniTool" style="display: block; width: 168px; height: 168px">
+</div>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700">Inquadrare il codice</h3>
+<p style="margin: 0; max-width: 300px; font-size: 16px; line-height: 1.55; color: #D5DDEB">Aprire la fotocamera dello smartphone e inquadrare il codice per accedere a IndenniTool, quindi seguire le istruzioni per il proprio dispositivo.</p>
+<a href="https://sevengem27.github.io/IndenniTool/" style="font-size: 15px; font-weight: 600; color: #FFFFFF">sevengem27.github.io/IndenniTool</a>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- Avvertenza -->
+<section class="sezione" aria-label="Avvertenza" style="box-sizing: border-box; padding: 0 48px 96px; background: #FFFFFF">
+<div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 28px 32px; border-radius: 14px; background: #F2F5F9; display: flex; gap: 16px; align-items: flex-start">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B5768" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+<p style="margin: 0; font-size: 14px; line-height: 1.65; color: #4B5768"><strong style="color: #2F3B4E">Avvertenza.</strong> IndenniTool è uno strumento di supporto al calcolo automatizzato basato sul CCNL del credito. I risultati hanno valore puramente indicativo e illustrativo e non costituiscono parere legale, contabile o consulenza professionale vincolante. Gli importi sono stimati dividendo la retribuzione annua lorda per dodici e non comprendono eventuali elementi variabili della retribuzione.</p>
+</div>
+</section>
+
+<!-- Piè di pagina -->
+<footer class="sezione" style="box-sizing: border-box; padding: 32px 48px; border-top: 1px solid #E2E8F0; background: #FFFFFF">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; align-items: center; gap: 12px">
+<img loading="lazy" src="icon-192.png" alt="" style="width: 32px; height: 32px; border-radius: 50%">
+<p style="margin: 0; font-size: 14px; color: #4B5768">© 2026 M. Monferrini. Tutti i diritti riservati.</p>
+</div>
+<a href="https://sevengem27.github.io/IndenniTool/" style="font-size: 14px; font-weight: 600; color: #1B2B4F">Apri IndenniTool</a>
+</div>
+</footer>
+
+</div>
+</body>
+</html>
